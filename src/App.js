@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import WebPlayback from './WebPlayback'
 import Login from './Login'
-import './App.css';
+import Genres from './Criteria/Genres'
+import './css/reset.css'
+import './css/styles.css'
 
 function App() {
 
@@ -19,10 +21,12 @@ function App() {
 
   }, []);
 
+
   return (
-    <>
-        { (token === '') ? <Login/> : <WebPlayback token={token} /> }
-    </>
+
+    <div className="app">
+      <Genres />
+    </div>
   );
 }
 

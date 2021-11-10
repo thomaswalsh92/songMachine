@@ -1,0 +1,24 @@
+//sass variables
+
+//colors
+$orange: #FCA17D;
+$red: #CE5261;
+$darkBlue: #395CD6;
+$lightBlue: #53D8FB;
+$lightGrey: #ececec;
+$midGrey: #7b7b7b;
+$black: #222222;
+
+// Criteria specific styles
+//genres specific styles
+.genres {
+    background-color: $lightGrey;
+    width: 500px;
+    height: 200px; 
+    margin: auto;
+    margin-top: 2rem;
+    p {
+        color: $black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }   
+}

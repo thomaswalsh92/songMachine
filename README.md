@@ -1,3 +1,7 @@
+This project has been built on top of the Spotify Web Playback SDK guide GitHub repo. 
+
+Full README to be completed. 
+
 # Web Playback SDK Javascript Tutorial
 
 This repository contains the source code for the [Web Playback SDK Guide](https://developer.spotify.com/documentation/web-playback-sdk/guide/).

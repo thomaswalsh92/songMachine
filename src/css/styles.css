@@ -1,0 +1,13 @@
+.genres {
+  background-color: #ececec;
+  width: 500px;
+  height: 200px;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.genres p {
+  color: #222222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*# sourceMappingURL=styles.css.map */
