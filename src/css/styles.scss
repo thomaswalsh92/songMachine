@@ -14,11 +14,17 @@ $black: #222222;
 .genres {
     background-color: $lightGrey;
     width: 500px;
-    height: 200px; 
+    height: 500px; 
     margin: auto;
     margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
     p {
         color: $black;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }   
+}
+
+.genreTile {
+    margin: 0 1rem 0 1rem;
 }

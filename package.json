@@ -1,14 +1,15 @@
 {
-  "name": "spotMachine",
+  "name": "spotmachine",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.24.0",
+    "node-fetch": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
   },
   "scripts": {
+    "watch": "nodemon ./server/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -32,6 +33,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "http-proxy-middleware": "^2.0.1",
+    "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5",
     "request": "^2.88.2"
   }

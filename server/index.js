@@ -6,7 +6,9 @@
 const express = require('express');
 const request = require('request');
 const dotenv = require('dotenv');
-const axios = require('axios');
+const fetch = require('node-fetch')
+//axios to be deleted from server
+//const axios = require('axios');
 
 //specificying the port for the server
 const port = 5000
@@ -90,34 +92,23 @@ app.get('/auth/token', (req, res) => {
   res.json({ access_token: access_token})
 })
 
-app.get('/api/genres', (req, res) => {
 
-  console.log (`access token is ${access_token}`)
-  axios.get
-  ('https://api.spotify.com/v1/recommendations/available-genre-seeds', 
-  { headers : {
-    'Accept' : 'application/json',
-    'Content-Type': 'application/json',
-    'Authorization' : 'Bearer ' + access_token
+app.get('/api/genres', async (req, res) => {
+  const url = 'https://api.spotify.com/v1/recommendations/available-genre-seeds'
+
+  const response = await fetch (url, {
+    method: 'GET',
+    headers : {
+      'Accept' : 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + access_token
     }  
+  }).then(response => response.json())
+  .then(data => {
+    res.json(data)
   })
-  .then(function (response) {
-    // handle success
-    //res.json(response);
-    console.log(response)
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
-
-  res.redirect('/')
-})
-  
+}); 
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
-})
+});
