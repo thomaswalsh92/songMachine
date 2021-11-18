@@ -7,8 +7,6 @@ const express = require('express');
 const request = require('request');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch')
-//axios to be deleted from server
-//const axios = require('axios');
 
 //specificying the port for the server
 const port = 5000
