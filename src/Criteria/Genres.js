@@ -8,16 +8,13 @@ const Genres = (props) => {
     <div className="genreContainer">
         {props.genres ? 
             (
-            <div className="loading">
-                <p>Loaded</p>
-                <div className="genres">
+            <ul className="genres">
                 {props.genres.map((genre, x) => (
                 <GenreTile 
                 key={x} 
                 genreName={genre}
                 />))} 
-                </div>
-            </div>
+            </ul>
         ) : (
             <div className="genres">
                 <p>Loading...</p>
