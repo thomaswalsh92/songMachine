@@ -53,14 +53,19 @@ function App() {
     initGenres(); 
   }, []);
 
+  //Sorts the selectedGenres state when ever changed
+  useEffect(() => {
+    setSelectedGenres (selectedGenres.sort());
+  }, [selectedGenres]);
+
   //Handles adding to selected genres
   
   const selectGenre = (genre) => {
     if (selectedGenres.length < 5) 
       {
-      setSelectedGenres([...selectedGenres, genre])
+      setSelectedGenres([...selectedGenres, genre]);
       }
-    // ERROR HANDLING REQUIRED
+    // ADD ERROR HANDLING REQUIRED IN BELOW CODE.
     else 
       {
       console.log('Max amount of genres selected.')
@@ -71,6 +76,10 @@ function App() {
     let newGenres = selectedGenres
     newGenres = newGenres.filter(element => element !== genre);
     setSelectedGenres(newGenres)
+  };
+
+  const sortSelectedGenres = () => {
+
   };
 
 
