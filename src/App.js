@@ -68,12 +68,10 @@ function App() {
   };
 
   const removeGenre = (genre) => {
-    for (let i in selectedGenres) {
-      if (selectedGenres[i] === genre) {
-        setSelectedGenres(selectedGenres.slice[i])
-      };
-    };
-  }
+    let newGenres = selectedGenres
+    newGenres = newGenres.filter(element => element !== genre);
+    setSelectedGenres(newGenres)
+  };
 
 
   return (
