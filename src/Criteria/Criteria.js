@@ -7,6 +7,7 @@ const Criteria = (props) => {
             <h2>Criteria</h2>
             <Genres 
             genres={props.genres}
+            selectedGenres={props.selectedGenres}
             selectGenre={props.selectGenre}
             removeGenre={props.removeGenre}
             />

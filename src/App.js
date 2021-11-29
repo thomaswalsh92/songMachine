@@ -22,17 +22,21 @@ import './css/styles.css';
 
 
 function App() {
-  
+
+  //USE STATE HOOKS
   //state for the access token.
   const [token, setToken] = useState('');
 
   //state for the genres used for all available genres in search.
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState([]);
 
   //state for the user-selected genres which will be used in search.
   const [selectedGenres, setSelectedGenres] = useState([]); 
+
+  //const [maxGenresSelected, setMaxGenresSelected] = useState(false);
   
 
+  //USE EFFECT HOOKS
   //gets and sets Token for access to Spotify SDK
   useEffect(() => {
     async function getToken() {
@@ -58,12 +62,15 @@ function App() {
     setSelectedGenres (selectedGenres.sort());
   }, [selectedGenres]);
 
-  //Handles adding to selected genres
-  
+
+  //Handles adding to selectedGenres
   const selectGenre = (genre) => {
     if (selectedGenres.length < 5) 
       {
       setSelectedGenres([...selectedGenres, genre]);
+      let newGenres = genres
+      newGenres = newGenres.filter(element => element !== genre);
+      setGenres(newGenres)
       }
     // ADD ERROR HANDLING REQUIRED IN BELOW CODE.
     else 
@@ -71,17 +78,13 @@ function App() {
       console.log('Max amount of genres selected.')
       }
   };
-
+  
+  //handles removing from selectedGenres
   const removeGenre = (genre) => {
-    let newGenres = selectedGenres
-    newGenres = newGenres.filter(element => element !== genre);
-    setSelectedGenres(newGenres)
+    let newSelectedGenres = selectedGenres
+    newSelectedGenres = newSelectedGenres.filter(element => element !== genre);
+    setSelectedGenres(newSelectedGenres)
   };
-
-  const sortSelectedGenres = () => {
-
-  };
-
 
   return (
 
@@ -89,6 +92,7 @@ function App() {
       { (token === '') ? <Login/> : <WebPlayback token={token} /> }
       <Criteria 
       genres={genres}
+      selectedGenres={selectedGenres}
       selectGenre={selectGenre}
       removeGenre={removeGenre}
       />

@@ -12,14 +12,11 @@ const GenreTile = (props) => {
         backgroundColor: '#ececec'
     };
 
-    let [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
-        if (!isClicked) {
-            setIsClicked(true)
+        if (!props.isClicked) {
             props.selectGenre(props.genreName)
         } else {
-            setIsClicked(false)
             props.removeGenre(props.genreName)
         };
     };
@@ -28,7 +25,7 @@ const GenreTile = (props) => {
         <li className="genreTile" 
         id={props.genreName}
         onClick={handleClick}
-        style={isClicked ?  isClickedStyle : isNotClickedStyle}
+        style={props.isClicked ?  isClickedStyle : isNotClickedStyle}
         >
             <p>{props.genreName}</p>
         </li>

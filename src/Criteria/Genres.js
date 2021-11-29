@@ -6,16 +6,23 @@ const Genres = (props) => {
     return (
         
     <div className="genreContainer">
-        {props.genres ? 
+        {props.genres? 
             (
             <ul className="genres">
+                {props.selectedGenres.map((genre, x) => (
+                <GenreTile
+                key={x}
+                genreName={genre}
+                removeGenre={props.removeGenre}
+                isClicked={true}
+                />))}
                 {props.genres.map((genre, x) => (
                 <GenreTile 
                 key={x} 
                 genreName={genre}
                 selectGenre={props.selectGenre}
-                removeGenre={props.removeGenre}
-                />))} 
+                isClicked={false}
+                />))}
             </ul>
         ) : (
             <div className="genres">
