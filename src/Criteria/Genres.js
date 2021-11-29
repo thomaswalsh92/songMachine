@@ -13,6 +13,8 @@ const Genres = (props) => {
                 <GenreTile 
                 key={x} 
                 genreName={genre}
+                selectGenre={props.selectGenre}
+                removeGenre={props.removeGenre}
                 />))} 
             </ul>
         ) : (

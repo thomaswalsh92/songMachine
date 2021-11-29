@@ -6,20 +6,23 @@ const GenreTile = (props) => {
     
     const isClickedStyle = {
         backgroundColor: '#53D8FB'
-    }
+    };
 
     const isNotClickedStyle = {
         backgroundColor: '#ececec'
-    }
+    };
+
     let [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
         if (!isClicked) {
             setIsClicked(true)
+            props.selectGenre(props.genreName)
         } else {
             setIsClicked(false)
-        }
-    }
+            props.removeGenre(props.genreName)
+        };
+    };
 
     return (
         <li className="genreTile" 
@@ -32,4 +35,4 @@ const GenreTile = (props) => {
         )
     };  
 
-export default GenreTile
+export default GenreTile;
