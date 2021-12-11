@@ -6,7 +6,7 @@
 const express = require('express');
 const request = require('request');
 const dotenv = require('dotenv');
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
 //specificying the port for the server
 const port = 5000

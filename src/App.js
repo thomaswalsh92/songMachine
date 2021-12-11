@@ -33,6 +33,9 @@ function App() {
   //state for the user-selected genres which will be used in search.
   const [selectedGenres, setSelectedGenres] = useState([]); 
 
+  //state for the filtered genres used by the GenreFilter component.
+  const [filteredGenres, setFilteredGenres] = useState([]);
+
   //const [maxGenresSelected, setMaxGenresSelected] = useState(false);
   
 
@@ -57,6 +60,7 @@ function App() {
     initGenres(); 
   }, []);
 
+  //GENRE SPECIFIC HANDLER FUNCTIONS
   //Sorts the selectedGenres state when ever changed
   useEffect(() => {
     setSelectedGenres (selectedGenres.sort());
@@ -86,6 +90,25 @@ function App() {
     setSelectedGenres(newSelectedGenres)
   };
 
+  //handles the filtering behaviour for the genres field
+  //filterGenres looks at the input field every time it is changed and 
+  //compares the input string to the all elements in the genres array.
+
+  const filterGenres = (input) => {
+    let newGenres = genres
+    console.log (input)
+    console.log ('filterGenres is running')
+    newGenres = newGenres.filter((element, index) => {
+      for (let i = 0; i < input.length; i++) {
+        if (input[i] === element[i]) {
+          return true
+        }
+      }
+    });
+    setFilteredGenres (newGenres)
+    console.log (filteredGenres)
+  };
+
   return (
 
     <div className="app">
@@ -93,8 +116,10 @@ function App() {
       <Criteria 
       genres={genres}
       selectedGenres={selectedGenres}
+      filteredGenres={filteredGenres}
       selectGenre={selectGenre}
       removeGenre={removeGenre}
+      filterGenres={filterGenres}
       />
     </div>
   );

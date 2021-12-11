@@ -8,8 +8,10 @@ const Criteria = (props) => {
             <Genres 
             genres={props.genres}
             selectedGenres={props.selectedGenres}
+            filteredGenres={props.filteredGenres}
             selectGenre={props.selectGenre}
             removeGenre={props.removeGenre}
+            filterGenres={props.filterGenres}
             />
         </div>
     )

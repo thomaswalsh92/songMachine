@@ -4,6 +4,18 @@
   height: 500px;
   margin: auto;
   margin-top: 2rem;
+}
+
+.genreFilter {
+  margin: 0 1rem 0 1rem;
+}
+
+.genreTilesContainer {
+  /* background-color: $lightGrey;
+    width: 500px;
+    height: 500px; 
+    margin: auto;
+    margin-top: 2rem; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,7 +23,7 @@
       flex-wrap: wrap;
 }
 
-.genres p {
+.genreTilesContainer p {
   color: #222222;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
