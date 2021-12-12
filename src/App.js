@@ -95,19 +95,39 @@ function App() {
   //compares the input string to the all elements in the genres array.
 
   const filterGenres = (input) => {
-    let newGenres = genres
-    console.log (input)
-    console.log ('filterGenres is running')
-    newGenres = newGenres.filter((element, index) => {
-      for (let i = 0; i < input.length; i++) {
-        if (input[i] === element[i]) {
-          return true
-        }
+    function search(txt, pat)
+    {   
+        
+      let M = pat.length;
+      let N = txt.length;
+   
+      /* A loop to slide pat one by one */
+      for (let i = 0; i <= N - M; i++) {
+        let j;
+
+        /* For current index i, check for pattern
+        match */
+        for (j = 0; j < M; j++)
+          if (txt[i + j] != pat[j])
+            break;
+
+        // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
+        if (j == M)
+          //console.log ('match', txt)
+          return true;
       }
+    }
+
+    let newGenres = genres;
+
+    newGenres = newGenres.filter((element) => {
+      return search (element, input)
     });
-    setFilteredGenres (newGenres)
-    console.log (filteredGenres)
+
+    setFilteredGenres(newGenres); 
   };
+  
+    
 
   return (
 
