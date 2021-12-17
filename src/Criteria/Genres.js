@@ -11,36 +11,24 @@ const Genres = (props) => {
         {props.genres? 
             (
             <ul className="genres">
-                <GenreFilter 
+                {<GenreFilter 
                 filterGenres={props.filterGenres}
-                />
+                />}
                 <div className="genreTilesContainer">
                     {props.selectedGenres.map((genre, x) => (
                     <GenreTile
                     key={x}
-                    genreName={genre}
+                    genre={genre}
                     removeGenre={props.removeGenre}
                     isClicked={true}
                     />))}
-                    {props.filteredGenres[0] ? 
-                        (
-                        props.filteredGenres.map((genre, x) => (
-                        <GenreTile 
-                        key={x} 
-                        genreName={genre}
-                        selectGenre={props.selectGenre}
-                        isClicked={false}
-                        />))
-                        ) : (
-                        props.genres.map((genre, x) => (
-                        <GenreTile 
-                        key={x} 
-                        genreName={genre}
-                        selectGenre={props.selectGenre}
-                        isClicked={false}
-                        />))
-                        )
-                    }
+                    {props.genres.map((genre, x) => (
+                    <GenreTile 
+                    key={x} 
+                    genre={genre}
+                    selectGenre={props.selectGenre}
+                    isClicked={false}
+                    />))}
                 </div>
             </ul>
         ) : (

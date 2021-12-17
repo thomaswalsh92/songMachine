@@ -27,16 +27,20 @@ function App() {
   //state for the access token.
   const [token, setToken] = useState('');
 
-  //state for the genres used for all available genres in search.
+  //State for all available genres in search. 
+  //This state is never mutated and once loaded from API is used as 
+  //a reference for available genres for mutation into selectedGenres
+  //and filteredGenres.
   const [genres, setGenres] = useState([]);
 
-  //state for the user-selected genres which will be used in search.
+  //State for the user-selected genres which will be used in search. 
+  //Selecting a genreTile will add the relevant genre string to this 
+  //array.
   const [selectedGenres, setSelectedGenres] = useState([]); 
 
-  //state for the filtered genres used by the GenreFilter component.
+  //State for the filtered genres displayed to the user. This is subject
+  //to the filtering from filterGenres function. 
   const [filteredGenres, setFilteredGenres] = useState([]);
-
-  //const [maxGenresSelected, setMaxGenresSelected] = useState(false);
   
 
   //USE EFFECT HOOKS
@@ -55,8 +59,10 @@ function App() {
   useEffect(() => {
     const initGenres = async () => {
       const response = await getGenres()
-      setGenres(response)
+      let packagedGenres = packageGenres(response);
+      await setGenres(packagedGenres);
     }  
+
     initGenres(); 
   }, []);
 
@@ -66,35 +72,72 @@ function App() {
     setSelectedGenres (selectedGenres.sort());
   }, [selectedGenres]);
 
+  //takes an array of genres (from spotify API) and packages
+  //into objects to be used in Genres component.
+  const packageGenres = (genres) => {
+    class genreObject {
+      constructor(genreName) {
+        this.name = genreName;
+        this.isSelected = false;
+        this.isFiltered = false;
+      };
+    };
 
-  //Handles adding to selectedGenres
+    if (genres) {
+      let newGenres = [];
+
+      genres.forEach(element => {
+        let thisGenre = new genreObject(element);
+        newGenres.push(thisGenre);
+      });
+
+      return newGenres;
+    }
+    
+  };
+
+
+
+  //Handles adding to selectedGenres. 
+
   const selectGenre = (genre) => {
-    if (selectedGenres.length < 5) 
-      {
-      setSelectedGenres([...selectedGenres, genre]);
-      let newGenres = genres
-      newGenres = newGenres.filter(element => element !== genre);
-      setGenres(newGenres)
-      }
+    if (selectedGenres.length < 5) {
+      genres.forEach(element => {
+        if (element.name === genre.name) {
+          setSelectedGenres([...selectedGenres, genre])
+          genre.isSelected = true;
+        };
+      });
+    }
     // ADD ERROR HANDLING REQUIRED IN BELOW CODE.
     else 
       {
       console.log('Max amount of genres selected.')
       }
   };
-  
+    
   //handles removing from selectedGenres
+  //TO-DO - For some reason this does not correctly remove from state.
+  
   const removeGenre = (genre) => {
-    let newSelectedGenres = selectedGenres
-    newSelectedGenres = newSelectedGenres.filter(element => element !== genre);
+    let newSelectedGenres = selectedGenres.filter(element => {
+      if (element.name !== genre.name) {
+        genre.isSelected = false;
+        return true;
+      }
+    })
     setSelectedGenres(newSelectedGenres)
   };
 
   //handles the filtering behaviour for the genres field
   //filterGenres looks at the input field every time it is changed and 
   //compares the input string to the all elements in the genres array.
-
+  //TO DO - Needs to be refactored for object structure of genres.
   const filterGenres = (input) => {
+    
+    //Search algorithm will return true to any txt parameter,
+    //that contains the pattern (in this case the contents of
+    //genreFilter input field)
     function search(txt, pat)
     {   
         
@@ -113,18 +156,38 @@ function App() {
 
         // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
         if (j == M)
-          //console.log ('match', txt)
           return true;
       }
     }
 
-    let newGenres = genres;
+    //Initialises newGenres var to be mutated. 
+    let newGenres = filteredGenres;
 
+    //If there is at least one entry in selectedGenres, newGenres 
+    //is mutated to exclude these values. 
+    
     newGenres = newGenres.filter((element) => {
-      return search (element, input)
+    for (let i = 0; i < selectedGenres.length; i++) {
+      if (selectedGenres[i] === element) {
+        return false;
+        } else {
+          return true;
+        };
+      };
     });
+  
 
-    setFilteredGenres(newGenres); 
+    /* newGenres = newGenres.filter((element) => {
+      return search (element, input)
+    }); */
+
+    
+
+    if (!input) {
+      setFilteredGenres (genres)
+    } else if (input) {
+      setFilteredGenres(newGenres)
+    };  
   };
   
     

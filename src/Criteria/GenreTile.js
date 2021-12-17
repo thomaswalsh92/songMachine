@@ -15,19 +15,19 @@ const GenreTile = (props) => {
 
     const handleClick = () => {
         if (!props.isClicked) {
-            props.selectGenre(props.genreName)
+            props.selectGenre(props.genre)
         } else {
-            props.removeGenre(props.genreName)
+            props.removeGenre(props.genre)
         };
     };
 
     return (
         <li className="genreTile" 
-        id={props.genreName}
+        id={props.genre.name}
         onClick={handleClick}
         style={props.isClicked ?  isClickedStyle : isNotClickedStyle}
         >
-            <p>{props.genreName}</p>
+            <p>{props.genre.name}</p>
         </li>
         )
     };  
