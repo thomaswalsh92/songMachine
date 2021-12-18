@@ -68,6 +68,7 @@ function App() {
 
   //GENRE SPECIFIC HANDLER FUNCTIONS
   //Sorts the selectedGenres state when ever changed
+  //TO-DO Re-factor for object model.
   useEffect(() => {
     setSelectedGenres (selectedGenres.sort());
   }, [selectedGenres]);
@@ -99,7 +100,6 @@ function App() {
 
 
   //Handles adding to selectedGenres. 
-
   const selectGenre = (genre) => {
     if (selectedGenres.length < 5) {
       genres.forEach(element => {
@@ -117,8 +117,6 @@ function App() {
   };
     
   //handles removing from selectedGenres
-  //TO-DO - For some reason this does not correctly remove from state.
-  
   const removeGenre = (genre) => {
     let newSelectedGenres = selectedGenres.filter(element => {
       if (element.name !== genre.name) {
