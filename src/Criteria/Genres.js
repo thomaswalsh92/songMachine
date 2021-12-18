@@ -24,11 +24,11 @@ const Genres = (props) => {
                                 removeGenre={props.removeGenre}
                                 isClicked={true}
                                 />
-                            )
-                        }
+                            );
+                        };
                     })}
                     {props.genres.map((genre, x) => {
-                        if (!genre.isSelected) {
+                        if (!genre.isSelected && genre.isFiltered) {
                             return (
                                 <GenreTile
                                 key={x}
@@ -36,8 +36,8 @@ const Genres = (props) => {
                                 selectGenre={props.selectGenre}
                                 isClicked={false}
                                 />
-                            )
-                        }
+                            );
+                        };
                     })}
                 </div>
             </ul>
@@ -48,6 +48,6 @@ const Genres = (props) => {
             )}
     </div>
     )
-};
+}
 
 export default Genres

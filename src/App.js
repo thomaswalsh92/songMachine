@@ -80,7 +80,7 @@ function App() {
       constructor(genreName) {
         this.name = genreName;
         this.isSelected = false;
-        this.isFiltered = false;
+        this.isFiltered = true;
       };
     };
 
@@ -130,9 +130,8 @@ function App() {
   //handles the filtering behaviour for the genres field
   //filterGenres looks at the input field every time it is changed and 
   //compares the input string to the all elements in the genres array.
-  //TO DO - Needs to be refactored for object structure of genres.
   const filterGenres = (input) => {
-    
+    console.log (input)
     //Search algorithm will return true to any txt parameter,
     //that contains the pattern (in this case the contents of
     //genreFilter input field)
@@ -157,38 +156,29 @@ function App() {
           return true;
       }
     }
-
-    //Initialises newGenres var to be mutated. 
-    let newGenres = filteredGenres;
-
-    //If there is at least one entry in selectedGenres, newGenres 
-    //is mutated to exclude these values. 
     
-    newGenres = newGenres.filter((element) => {
-    for (let i = 0; i < selectedGenres.length; i++) {
-      if (selectedGenres[i] === element) {
-        return false;
-        } else {
-          return true;
-        };
-      };
-    });
-  
-
-    /* newGenres = newGenres.filter((element) => {
-      return search (element, input)
-    }); */
-
-    
+    let newGenres = [];
 
     if (!input) {
-      setFilteredGenres (genres)
-    } else if (input) {
-      setFilteredGenres(newGenres)
-    };  
+      for (let i = 0; i < genres.length; i++) {
+        let thisGenre = genres[i];
+        thisGenre.isFiltered = true;
+        newGenres.push (thisGenre);
+      };
+      setGenres(newGenres)
+
+    } else {
+      for (let i = 0; i < genres.length; i++) {
+        let thisGenre = genres[i];
+        thisGenre.isFiltered = false;
+        if (search(genres[i].name, input)) {
+          thisGenre.isFiltered = true;
+        }
+        newGenres.push (thisGenre)
+      };
+      setGenres(newGenres)
+    };
   };
-  
-    
 
   return (
 
