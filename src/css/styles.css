@@ -1,9 +1,9 @@
+.genreContainer button {
+  margin: 0 1rem 0 1rem;
+}
+
 .genres {
   background-color: #ececec;
-  width: 500px;
-  height: 500px;
-  margin: auto;
-  margin-top: 2rem;
 }
 
 .genreFilter {

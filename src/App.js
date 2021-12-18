@@ -37,10 +37,6 @@ function App() {
   //Selecting a genreTile will add the relevant genre string to this 
   //array.
   const [selectedGenres, setSelectedGenres] = useState([]); 
-
-  //State for the filtered genres displayed to the user. This is subject
-  //to the filtering from filterGenres function. 
-  const [filteredGenres, setFilteredGenres] = useState([]);
   
 
   //USE EFFECT HOOKS
@@ -187,7 +183,6 @@ function App() {
       <Criteria 
       genres={genres}
       selectedGenres={selectedGenres}
-      filteredGenres={filteredGenres}
       selectGenre={selectGenre}
       removeGenre={removeGenre}
       filterGenres={filterGenres}
