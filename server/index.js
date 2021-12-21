@@ -2,6 +2,8 @@
 // URL: https://github.com/spotify/spotify-web-playback-sdk-example
 // A full summary of changes can be found in readme.md .
 
+//added /api/genres and /api/recommendation endpoints.
+
 //import required libraries, express as the node framework, request as ... ??, dotenv allows api access codes to be stored in .env file.
 const express = require('express');
 const request = require('request');
@@ -106,6 +108,41 @@ app.get('/api/genres', async (req, res) => {
     res.json(data)
   })
 }); 
+
+app.get('/api/search', async (req, res) => {
+  
+  const url = `https://api.spotify.com/v1/search?q=${req.query.string}&type=track`
+  
+  const response = await fetch (url, {
+    method: 'GET',
+    headers : {
+      'Accept' : 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + access_token
+    }  
+  }).then(response => response.json())
+  .then(data => {
+    res.json(data)
+  })
+});
+
+// app.get('/api/recommendations', async (req, res) => {
+//   const url = 'https://api.spotify.com/v1/recommendations'
+
+//   const response = await fetch (url, {
+//     method: 'GET',
+//     headers : {
+//       'Accept' : 'application/json',
+//       'Content-Type': 'application/json',
+//       'Authorization' : 'Bearer ' + access_token
+//     }  
+//   }).then(response => response.json())
+//   .then(data => {
+//     res.json(data)
+//   })
+// });
+
+
 
 
 app.listen(port, () => {

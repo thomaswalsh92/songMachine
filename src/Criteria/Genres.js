@@ -9,7 +9,7 @@ const Genres = (props) => {
     const [showAll, setShowAll] = useState(false);
 
     const showLessStyle = {
-        maxHeight: '150px',
+        maxHeight: '4rem',
         overflowY: 'scroll'
     };
 
@@ -19,13 +19,8 @@ const Genres = (props) => {
     };
 
     const handleClick = () => {
-        console.log (showAll)
-        if (showAll) {
-            setShowAll (false)
-        } else {
-            setShowAll (true)
-        }
-    }
+        showAll ? setShowAll (false) : setShowAll (true);
+    };
 
     return (
         
@@ -35,8 +30,7 @@ const Genres = (props) => {
         />}
         {props.genres? 
             (
-            <ul className="genres" style={showAll ? showAllStyle : showLessStyle}>
-                
+            <ul className="genres" style={showAll ? showAllStyle : showLessStyle}>  
                 <div className="genreTilesContainer">
                     {props.selectedGenres.map((genre, x) => {
                         if (genre.isSelected) {
@@ -69,9 +63,9 @@ const Genres = (props) => {
                 <p>Loading...</p>
             </div>
             )}
-        {showAll ? <button onClick={handleClick}>Show less</button> : <button onClick={handleClick}>Show all</button>}
+        {showAll ? <button onClick={handleClick}>Show less -</button> : <button onClick={handleClick}>Show all +</button>}
     </div>
-    )
-}
+    );
+};
 
 export default Genres

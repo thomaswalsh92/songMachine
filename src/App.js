@@ -6,20 +6,19 @@ import { get } from 'request';
 
 //Front end components
 import Login from './Login';
-
-//Criteria section
 import Criteria from './Criteria/Criteria';
-import Genres from './Criteria/Genres';
+import Suggestion from './Suggestion/Suggestion';
+import Seeds from './Seeds/Seeds'
+import Search from './Search/Search'
 
 //API helper function(s)
 import getGenres from './utility/getGenres';
+import getRecommendations from './utility/getRecommendations';
+import getSearch from './utility/getSearch';
 
 //CSS
 import './css/reset.css';
 import './css/styles.css';
-
-
-
 
 function App() {
 
@@ -28,16 +27,18 @@ function App() {
   const [token, setToken] = useState('');
 
   //State for all available genres in search. 
-  //This state is never mutated and once loaded from API is used as 
-  //a reference for available genres for mutation into selectedGenres
-  //and filteredGenres.
   const [genres, setGenres] = useState([]);
 
   //State for the user-selected genres which will be used in search. 
-  //Selecting a genreTile will add the relevant genre string to this 
+  //Selecting a genreTile will add the relevant genreObject to this 
   //array.
   const [selectedGenres, setSelectedGenres] = useState([]); 
   
+  //State for selectedTracks
+  const [selectedTracks, setSelectedTracks] = useState([1, 2, 3]);
+
+  //State for searchedTracks 
+  const [searchedTracks, setSearchedTracks] = useState();
 
   //USE EFFECT HOOKS
   //gets and sets Token for access to Spotify SDK
@@ -63,10 +64,10 @@ function App() {
   }, []);
 
   //GENRE SPECIFIC HANDLER FUNCTIONS
-  //Sorts the selectedGenres state when ever changed
+  //Sorts the selectedGenres state based on when ever changed.
   //TO-DO Re-factor for object model.
   useEffect(() => {
-    setSelectedGenres (selectedGenres.sort());
+
   }, [selectedGenres]);
 
   //takes an array of genres (from spotify API) and packages
@@ -92,8 +93,6 @@ function App() {
     }
     
   };
-
-
 
   //Handles adding to selectedGenres. 
   const selectGenre = (genre) => {
@@ -127,7 +126,6 @@ function App() {
   //filterGenres looks at the input field every time it is changed and 
   //compares the input string to the all elements in the genres array.
   const filterGenres = (input) => {
-    console.log (input)
     //Search algorithm will return true to any txt parameter,
     //that contains the pattern (in this case the contents of
     //genreFilter input field)
@@ -176,6 +174,20 @@ function App() {
     };
   };
 
+  //SUGGESTION Specific functions
+
+  //SEED Specific functions
+
+  const generateSuggestions = (genres) => {
+    getRecommendations(genres);
+  };
+
+  //SEARCH Specific functions
+  const searchTracks = async (input) => {
+    const response = await getSearch(input);
+    await setSearchedTracks(response);
+  };
+
   return (
 
     <div className="app">
@@ -186,9 +198,21 @@ function App() {
       selectGenre={selectGenre}
       removeGenre={removeGenre}
       filterGenres={filterGenres}
+      />    
+      <Search 
+      searchTracks={searchTracks}
+      searchedTracks={searchedTracks}
       />
+      <Seeds 
+      selectedTracks={selectedTracks}
+      />  
     </div>
-  );
-}
+  )
+};
 
+
+/* <Suggestion 
+generateSuggestions={generateSuggestions}
+electedGenres={selectedGenres}
+/> */
 export default App;
