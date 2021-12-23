@@ -35,10 +35,14 @@ function App() {
   const [selectedGenres, setSelectedGenres] = useState([]); 
   
   //State for selectedTracks
-  const [selectedTracks, setSelectedTracks] = useState([1, 2, 3]);
+  const [seedTracks, setSeedTracks] = useState([undefined, undefined, undefined]);
 
   //State for searchedTracks 
-  const [searchedTracks, setSearchedTracks] = useState();
+  const [searchedTracks, setSearchedTracks] = useState([]);
+
+  //State object that is true when user is searching for track, 
+  //and includes the index of what seed is being searched for.
+  const [userSearching, setUserSearching] = useState({searchingNow: false, index: null});
 
   //USE EFFECT HOOKS
   //gets and sets Token for access to Spotify SDK
@@ -177,16 +181,41 @@ function App() {
   //SUGGESTION Specific functions
 
   //SEED Specific functions
-
   const generateSuggestions = (genres) => {
     getRecommendations(genres);
   };
+
+  const openSearch = (index) => { 
+    setUserSearching({searchingNow: true, index: index})
+  };
+
+  const deleteTrack = (index) => {
+    let newSeedTracks = seedTracks;
+    newSeedTracks[index] = undefined;
+    setSeedTracks(newSeedTracks);
+    setUserSearching({searchingNow: false, index: null})
+  }
 
   //SEARCH Specific functions
   const searchTracks = async (input) => {
     const response = await getSearch(input);
     await setSearchedTracks(response);
   };
+
+  const selectTrack = (track) => {
+    let newSeedTracks = seedTracks;
+    seedTracks[userSearching.index] = track;
+    setSeedTracks(newSeedTracks);
+    closeSearch();
+  };
+
+  const closeSearch = () => {
+    setUserSearching({searchingNow: false, index: null})
+  };
+
+  //TRACKTILE Specific functions 
+
+  
 
   return (
 
@@ -199,13 +228,23 @@ function App() {
       removeGenre={removeGenre}
       filterGenres={filterGenres}
       />    
-      <Search 
-      searchTracks={searchTracks}
-      searchedTracks={searchedTracks}
-      />
       <Seeds 
-      selectedTracks={selectedTracks}
+      seedTracks={seedTracks}
+      openSearch={openSearch}
+      deleteTrack={deleteTrack}
       />  
+      {userSearching.searchingNow ? 
+        <Search 
+        searchTracks={searchTracks}
+        searchedTracks={searchedTracks}
+        selectTrack={selectTrack}
+        closeSearch={closeSearch}
+        />
+      : 
+        <div className="notSearching">
+        <p>Search not open</p>
+        </div>
+      }
     </div>
   )
 };

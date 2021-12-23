@@ -48,3 +48,31 @@ $black: #222222;
     margin: 0 1rem 0 1rem;
     cursor: pointer;
 }
+
+//Seed specific styles 
+
+.seedContainer {
+    width: 33%;
+}
+//Search specific styles 
+
+.searchResults {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+//Track tile specific styles
+
+.trackTile {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+.trackImageContainer {
+    height: 64px;
+    width: 64px;
+}
+.albumArtPlaceholder { 
+    height: 64px;
+    width: 64px;
+    background-color: $midGrey;
+}

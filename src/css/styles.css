@@ -32,4 +32,36 @@
   margin: 0 1rem 0 1rem;
   cursor: pointer;
 }
+
+.seedContainer {
+  width: 33%;
+}
+
+.searchResults {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.trackTile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.trackImageContainer {
+  height: 64px;
+  width: 64px;
+}
+
+.albumArtPlaceholder {
+  height: 64px;
+  width: 64px;
+  background-color: #7b7b7b;
+}
 /*# sourceMappingURL=styles.css.map */
