@@ -179,11 +179,12 @@ function App() {
   };
 
   //SUGGESTION Specific functions
+  const generateSuggestions = () => {
+    getRecommendations(seedTracks, selectedGenres);
+  };
 
   //SEED Specific functions
-  const generateSuggestions = (genres) => {
-    getRecommendations(genres);
-  };
+ 
 
   const openSearch = (index) => { 
     setUserSearching({searchingNow: true, index: index})
@@ -213,10 +214,6 @@ function App() {
     setUserSearching({searchingNow: false, index: null})
   };
 
-  //TRACKTILE Specific functions 
-
-  
-
   return (
 
     <div className="app">
@@ -245,13 +242,13 @@ function App() {
         <p>Search not open</p>
         </div>
       }
+      <Suggestion 
+      generateSuggestions={generateSuggestions}
+      /> 
     </div>
   )
 };
 
 
-/* <Suggestion 
-generateSuggestions={generateSuggestions}
-electedGenres={selectedGenres}
-/> */
+
 export default App;

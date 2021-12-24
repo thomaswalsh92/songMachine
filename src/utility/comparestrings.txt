@@ -1,0 +1,7 @@
+https://api.spotify.com/v1/recommendations?limit=10&seed_artists=4dpARuHxo51G3z768sgnrY&seed_genres=children%2Cafrobeat&seed_tracks=1Yk0cQdMLx5RzzFTYwmuld
+https://api.spotify.com/v1/recommendations?limit=10&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQDGtyCguMGTpMbTP_56GwtgTkXBgztjQtcCW5x6glu_2HHtxAMy7zmLOM_DX5CLLv6b312IQN6WvK8Ed7P5w3UR_OFQx-HwWxmpN5NkoSaqxlZA6OL2aW_NJ_Mgj_1KimsVHNBoghA69g"
+
+
+https://api.spotify.com/v1/recommendations?limit=10&seed_artists=4dpARuHxo51G3z768sgnrY&seed_genres=children%2Cafrobeat&seed_tracks=1Yk0cQdMLx5RzzFTYwmuld -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQCmAZ7QCsXTEhMc8PBzAT9MPYF19VCErMh676dQ_cxQ___NR2SvkI3jy8IaFmmRbFVgxqHTbqOOg-gE-8dzF5b2nnFom8dZE2RudN_P8MXrY8-YZQ2ZTiPAhGS5t-cihZ4TH9DDnUGpgA"
+
+

@@ -126,24 +126,22 @@ app.get('/api/search', async (req, res) => {
   })
 });
 
-// app.get('/api/recommendations', async (req, res) => {
-//   const url = 'https://api.spotify.com/v1/recommendations'
-
-//   const response = await fetch (url, {
-//     method: 'GET',
-//     headers : {
-//       'Accept' : 'application/json',
-//       'Content-Type': 'application/json',
-//       'Authorization' : 'Bearer ' + access_token
-//     }  
-//   }).then(response => response.json())
-//   .then(data => {
-//     res.json(data)
-//   })
-// });
-
-
-
+app.get('/api/recommendations', async (req, res) => {
+  const url = `https://api.spotify.com/v1/recommendations?limit=1&seed_artists${req.query.artists}&seed_genres=${req.query.genres}&seed_tracks=${req.query.tracks}`
+  //console.log (req.query.artists, req.query.genres, req.query.tracks);
+  
+  const response = await fetch (url, {
+    method: 'GET',
+    headers : {
+      'Accept' : 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + access_token
+    }  
+  }).then(response => response.json())
+  .then(data => {
+    res.json(data)
+  })
+});
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)

@@ -1,7 +1,7 @@
 const Suggestion = (props) => {
 
     const handleClick = () => {
-        props.generateSuggestions(props.selectedGenres);
+        props.generateSuggestions();
     };
     
     return (

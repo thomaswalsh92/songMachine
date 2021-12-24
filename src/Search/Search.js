@@ -37,7 +37,7 @@ const Search = (props) => {
                 : 
                 <p>Search for tracks!</p>}    
         </div>
-        )
+        ) 
 };
 
 export default Search;
