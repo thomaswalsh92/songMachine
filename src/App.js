@@ -34,11 +34,11 @@ function App() {
   //array.
   const [selectedGenres, setSelectedGenres] = useState([]); 
   
-  //State for selectedTracks
   const [seedTracks, setSeedTracks] = useState([undefined, undefined, undefined]);
 
-  //State for searchedTracks 
   const [searchedTracks, setSearchedTracks] = useState([]);
+
+  const [suggestedTrack, setSuggestedTrack] = useState(undefined);
 
   //State object that is true when user is searching for track, 
   //and includes the index of what seed is being searched for.
@@ -179,8 +179,10 @@ function App() {
   };
 
   //SUGGESTION Specific functions
-  const generateSuggestions = () => {
-    getRecommendations(seedTracks, selectedGenres);
+  const generateSuggestions = async () => {
+    let suggestion = await getRecommendations(seedTracks, selectedGenres);
+    await console.log (suggestion);
+    await setSuggestedTrack(suggestion)
   };
 
   //SEED Specific functions
@@ -244,6 +246,7 @@ function App() {
       }
       <Suggestion 
       generateSuggestions={generateSuggestions}
+      suggestedTrack={suggestedTrack}
       /> 
     </div>
   )

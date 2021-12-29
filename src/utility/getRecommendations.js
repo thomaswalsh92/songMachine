@@ -28,11 +28,9 @@ async function getRecommendations(seedTracks, selectedGenres) {
         };
     };
 
-    console.log (tracksStr)
-
     const response = await fetch(`/api/recommendations?artists=${artistsStr}&genres=${genresStr}&tracks=${tracksStr}`);
     const json = await response.json();
-    console.log (json)
+    return (json)
 };
 
 export default getRecommendations;
