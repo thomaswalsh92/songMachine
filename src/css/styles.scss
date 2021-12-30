@@ -4,33 +4,179 @@
 $orange: #FCA17D;
 $red: #CE5261;
 $darkBlue: #395CD6;
-$lightBlue: #53D8FB;
+$lightBlue: #74BAF5;
+$veryLightGrey: #f5f4f4;
 $lightGrey: #ececec;
-$midGrey: #7b7b7b;
+$midGrey: #c4c4c4;
+$darkGrey: #7b7b7b;
 $black: #222222;
 
+
+//body styles 
+
+body {
+    background-image: linear-gradient(to right, $lightBlue, $darkBlue);
+}
+//Text styles 
+
+h1 {
+    font-family: 'VT323';
+    font-size: 2.25rem;
+    color: $black;
+}
+
+h2 {
+    font-family: 'VT323';
+    font-size: 1.25rem;
+    color: $black;
+}
+
+h3 {
+    font-family: 'Work Sans';
+    font-size: 0.75rem;
+    color: $black;
+    font-weight: 300;
+}
+
+p {
+    font-family: 'Work Sans';
+    font-size: 0.75rem;
+    color: $black;
+}
+
+button {
+    font-family: 'Work Sans';
+    font-size: 0.75rem;
+}
+
+input {
+    font-family: 'Work Sans';
+    font-size: 0.75rem;
+}
+
+
+//Header specific styles 
+
+.header {
+    background-image: linear-gradient(to left, $red, $orange);
+    height: 4rem;
+    h1 {
+        padding-top: 0.875rem;
+        padding-bottom: 0.875rem;
+        padding-left: 0.5rem;
+    }
+}
+
+//Suggestion specific styles 
+
+.suggestion {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    
+
+}
+
+.suggestedTrack {
+    background-color: white;
+    width: 100%;
+    .trackTile {
+        padding-top: 1rem;
+        width: 100%;
+    }
+}
+
+.suggestButton {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.suggestedTrackContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+}
+
+.suggestedTrackMetadata {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    background-color: $lightGrey;
+    border-radius: 0.5rem;
+}
+
+.suggestedTrackMetadataPlaceholder {
+    height: 48px;
+    width: 128px;
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    background-color: $lightGrey;
+}
+
+.suggestedTrackAlbumArtPlaceholder { 
+    height: 64px;
+    width: 64px;
+    background-color: $lightGrey;
+}
+
+.suggestButton {
+    background-image: linear-gradient(to right, $red, $orange);
+    width: 10rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    //filter: drop-shadow(0rem 0.25rem 0.25rem $black);
+    p {
+        font-family: 'VT323';
+        font-size: 20px;
+    }
+}
+
+//Player specific styles 
+
+.player {
+    height: 100px;
+    width: 100%;
+    background-color: $lightGrey;
+}
+
 // Criteria specific styles
+.criteria {
+    background-color: white;
+}
+.criteriaHeader {
+    height: 2.25rem;
+    background-color: $orange;
+    h2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}
 //genres specific styles
 
 .genreContainer {
     button {
-        margin: 0 1rem 0 1rem;
+        p {
+            font-family: 'Work Sans';
+            
+        }
+        margin: 0 1rem 0.5rem 0.5rem;
+        font-size: 0.6rem;
+        color: $black;
     }
 }
-.genres {
-    background-color: $lightGrey;
-    
-    // width: 500px;
-    // height: 500px; 
-    // margin: auto;
-    // margin-top: 2rem;
-}
 
+.genreHeader {
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+}
 .genreFilter {
     margin: 0 1rem 0 1rem;
-
 }
-.genreTilesContainer {
+
+.genres {
     /* background-color: $lightGrey;
     width: 500px;
     height: 500px; 
@@ -38,41 +184,87 @@ $black: #222222;
     margin-top: 2rem; */
     display: flex;
     flex-wrap: wrap;
-    p {
-        color: $black;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }   
 }
 
 .genreTile {
-    margin: 0 1rem 0 1rem;
+    margin: 0 0.5rem 0.4rem 0.5rem;
     cursor: pointer;
+    border-radius: 0.4rem;
+    padding: 0.1rem 0.4rem;
+    height: 0.8rem;
+    display: flex;
+    place-items: center;
+    p { 
+        font-size: 0.6rem;
+    }
 }
 
 //Seed specific styles 
 
-.trackTile {
-    width: 33%;
+.seeds {
+    background-color: white;
 }
+
+.seedsHeader {
+    height: 2.25rem;
+    background-color: $orange;
+    h2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}
+
+.seedsContainer {
+    padding: 0.5rem;
+}
+
+
 //Search specific styles 
 
 .searchResults {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
 //Track tile specific styles
 
 .trackTile {
     display: flex;
     margin-bottom: 1rem;
     justify-content: space-between;
+    background-color: $veryLightGrey;
+    place-items: center;
+    justify-content: flex-start;
+    height: 6rem;
+    border-radius: 0.75rem;
 }
 .trackImageContainer {
     height: 64px;
     width: 64px;
+    margin-left: 1rem;
 }
 .albumArtPlaceholder { 
     height: 64px;
     width: 64px;
-    background-color: $midGrey;
+    background-color: $lightGrey;
+}
+
+.trackMetadataContainer {
+    margin-left: 1rem;
+}
+
+.trackMetadataUnselected {
+    p {
+        color: $midGrey;
+    }
+    
+}
+
+.trackAction {
+    margin-left: 1rem;
+    float: right;
+    img {
+        color: red;
+    }
 }

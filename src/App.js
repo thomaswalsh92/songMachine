@@ -70,9 +70,9 @@ function App() {
   //GENRE SPECIFIC HANDLER FUNCTIONS
   //Sorts the selectedGenres state based on when ever changed.
   //TO-DO Re-factor for object model.
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [selectedGenres]);
+  // }, [selectedGenres]);
 
   //takes an array of genres (from spotify API) and packages
   //into objects to be used in Genres component.
@@ -181,7 +181,6 @@ function App() {
   //SUGGESTION Specific functions
   const generateSuggestions = async () => {
     let suggestion = await getRecommendations(seedTracks, selectedGenres);
-    await console.log (suggestion);
     await setSuggestedTrack(suggestion)
   };
 
@@ -217,9 +216,14 @@ function App() {
   };
 
   return (
-
     <div className="app">
-      { (token === '') ? <Login/> : <WebPlayback token={token} /> }
+      <div className="header">
+        <h1>spotMachine</h1>
+      </div>
+      <Suggestion 
+      generateSuggestions={generateSuggestions}
+      suggestedTrack={suggestedTrack}
+      /> 
       <Criteria 
       genres={genres}
       selectedGenres={selectedGenres}
@@ -244,14 +248,10 @@ function App() {
         <p>Search not open</p>
         </div>
       }
-      <Suggestion 
-      generateSuggestions={generateSuggestions}
-      suggestedTrack={suggestedTrack}
-      /> 
+      
+      { (token === '') ? <Login/> : <WebPlayback token={token} /> }
     </div>
   )
 };
-
-
 
 export default App;

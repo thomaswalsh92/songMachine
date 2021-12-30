@@ -3,8 +3,7 @@ async function getRecommendations(seedTracks, selectedGenres) {
     let artistsStr = '';
     let genresStr = '';
     let tracksStr = '';
-    let space = '%2C'
-    let trackSpace = '%2C%20';
+    let comma = ','
 
     const usedTracks = seedTracks.filter((track) => {
         if (track) {
@@ -16,15 +15,15 @@ async function getRecommendations(seedTracks, selectedGenres) {
         artistsStr = artistsStr.concat(usedTracks[i].artists[0].id);
         tracksStr = tracksStr.concat(usedTracks[i].id);
         if (i < usedTracks.length - 1) {
-            artistsStr = artistsStr.concat(space);
-            tracksStr = tracksStr.concat(trackSpace);
+            artistsStr = artistsStr.concat(comma);
+            tracksStr = tracksStr.concat(comma);
         };
     };
 
     for (let i = 0; i < selectedGenres.length; i ++) {
         genresStr = genresStr.concat(selectedGenres[i].name);
         if (i < selectedGenres.length - 1) {
-            genresStr = genresStr.concat(space);
+            genresStr = genresStr.concat(comma);
         };
     };
 

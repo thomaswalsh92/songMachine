@@ -5,7 +5,10 @@ const Seeds = (props) => {
     return (
         
         <div className="seeds">
-            <ul className="seedContainer">
+            <div className="seedsHeader">
+                <h2>Seeds</h2>
+            </div>
+            <ul className="seedsContainer">
                 {props.seedTracks.map((track, x) => {
                     if (track) {
                         return (

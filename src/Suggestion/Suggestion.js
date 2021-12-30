@@ -1,9 +1,10 @@
-import TrackTile from "../TrackTile/TrackTile";
+import SuggestedTrack from "./SuggestedTrack";
+import Player from "../Player/Player";
+import { useEffect } from "react";
 
 const Suggestion = (props) => {
 
-    let track = undefined;
-    props.suggestedTrack ? track = props.suggestedTrack.tracks[0] : track = undefined;
+    console.log (props.suggestedTrack)
 
     const handleClick = () => {
         props.generateSuggestions();
@@ -12,21 +13,23 @@ const Suggestion = (props) => {
     return (
         
         <div className="suggestion">
-            <button onClick={handleClick}>Suggest</button>
-            <ul>
+            <ul className="suggestedTrack">
                 {props.suggestedTrack ? 
-                    <TrackTile 
-                    trackName={track.name}
-                    artist={track.artists[0].name}
-                    album={track.album.name}
-                    artURL={track.album.images[2].url}
-                    isSeed={false}
-                    isSelected={false}
-                    deleteTrack={props.deleteTrack}
+                    <SuggestedTrack
+                    trackName={props.suggestedTrack.tracks[0].name}
+                    artist={props.suggestedTrack.tracks[0].artists[0].name}
+                    album={props.suggestedTrack.tracks[0].album.name}
+                    artURL={props.suggestedTrack.tracks[0].album.images[2].url}
+                    trackSuggested={true}
                     /> 
                 : 
-                    <li>Hit generate track to find suggestions</li>}
+                    <SuggestedTrack
+                    trackSuggested={false}
+                    /> 
+                }
             </ul>
+            <Player />
+            <button className="suggestButton" onClick={handleClick}><p>Suggest</p></button>
         </div>
     )
 };

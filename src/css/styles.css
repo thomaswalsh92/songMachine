@@ -1,16 +1,171 @@
-.genreContainer button {
-  margin: 0 1rem 0 1rem;
+body {
+  background-image: -webkit-gradient(linear, left top, right top, from(#74BAF5), to(#395CD6));
+  background-image: linear-gradient(to right, #74BAF5, #395CD6);
 }
 
-.genres {
+h1 {
+  font-family: 'VT323';
+  font-size: 2.25rem;
+  color: #222222;
+}
+
+h2 {
+  font-family: 'VT323';
+  font-size: 1.25rem;
+  color: #222222;
+}
+
+h3 {
+  font-family: 'Work Sans';
+  font-size: 0.75rem;
+  color: #222222;
+  font-weight: 300;
+}
+
+p {
+  font-family: 'Work Sans';
+  font-size: 0.75rem;
+  color: #222222;
+}
+
+button {
+  font-family: 'Work Sans';
+  font-size: 0.75rem;
+}
+
+input {
+  font-family: 'Work Sans';
+  font-size: 0.75rem;
+}
+
+.header {
+  background-image: -webkit-gradient(linear, right top, left top, from(#CE5261), to(#FCA17D));
+  background-image: linear-gradient(to left, #CE5261, #FCA17D);
+  height: 4rem;
+}
+
+.header h1 {
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  padding-left: 0.5rem;
+}
+
+.suggestion {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+}
+
+.suggestedTrack {
+  background-color: white;
+  width: 100%;
+}
+
+.suggestedTrack .trackTile {
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.suggestButton {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.suggestedTrackContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 10rem;
+}
+
+.suggestedTrackMetadata {
+  margin-left: 1rem;
+  padding: 0.5rem;
   background-color: #ececec;
+  border-radius: 0.5rem;
+}
+
+.suggestedTrackMetadataPlaceholder {
+  height: 48px;
+  width: 128px;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ececec;
+}
+
+.suggestedTrackAlbumArtPlaceholder {
+  height: 64px;
+  width: 64px;
+  background-color: #ececec;
+}
+
+.suggestButton {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CE5261), to(#FCA17D));
+  background-image: linear-gradient(to right, #CE5261, #FCA17D);
+  width: 10rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+}
+
+.suggestButton p {
+  font-family: 'VT323';
+  font-size: 20px;
+}
+
+.player {
+  height: 100px;
+  width: 100%;
+  background-color: #ececec;
+}
+
+.criteria {
+  background-color: white;
+}
+
+.criteriaHeader {
+  height: 2.25rem;
+  background-color: #FCA17D;
+}
+
+.criteriaHeader h2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.genreContainer button {
+  margin: 0 1rem 0.5rem 0.5rem;
+  font-size: 0.6rem;
+  color: #222222;
+}
+
+.genreContainer button p {
+  font-family: 'Work Sans';
+}
+
+.genreHeader {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .genreFilter {
   margin: 0 1rem 0 1rem;
 }
 
-.genreTilesContainer {
+.genres {
   /* background-color: $lightGrey;
     width: 500px;
     height: 500px; 
@@ -23,18 +178,39 @@
       flex-wrap: wrap;
 }
 
-.genreTilesContainer p {
-  color: #222222;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .genreTile {
-  margin: 0 1rem 0 1rem;
+  margin: 0 0.5rem 0.4rem 0.5rem;
   cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.1rem 0.4rem;
+  height: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
 }
 
-.trackTile {
-  width: 33%;
+.genreTile p {
+  font-size: 0.6rem;
+}
+
+.seeds {
+  background-color: white;
+}
+
+.seedsHeader {
+  height: 2.25rem;
+  background-color: #FCA17D;
+}
+
+.seedsHeader h2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.seedsContainer {
+  padding: 0.5rem;
 }
 
 .searchResults {
@@ -52,16 +228,41 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-color: #f5f4f4;
+  place-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 6rem;
+  border-radius: 0.75rem;
 }
 
 .trackImageContainer {
   height: 64px;
   width: 64px;
+  margin-left: 1rem;
 }
 
 .albumArtPlaceholder {
   height: 64px;
   width: 64px;
-  background-color: #7b7b7b;
+  background-color: #ececec;
+}
+
+.trackMetadataContainer {
+  margin-left: 1rem;
+}
+
+.trackMetadataUnselected p {
+  color: #c4c4c4;
+}
+
+.trackAction {
+  margin-left: 1rem;
+  float: right;
+}
+
+.trackAction img {
+  color: red;
 }
 /*# sourceMappingURL=styles.css.map */

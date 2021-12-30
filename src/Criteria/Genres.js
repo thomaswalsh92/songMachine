@@ -25,38 +25,39 @@ const Genres = (props) => {
     return (
         
     <div className="genreContainer" >
-        {<GenreFilter 
+        <div className="genreHeader">
+            <h3>GENRES</h3>
+        </div>
+        {/* {<GenreFilter 
         filterGenres={props.filterGenres}
-        />}
+        />} */}
         {props.genres? 
             (
             <ul className="genres" style={showAll ? showAllStyle : showLessStyle}>  
-                <div className="genreTilesContainer">
-                    {props.selectedGenres.map((genre, x) => {
-                        if (genre.isSelected) {
-                            return (
-                                <GenreTile
-                                key={x}
-                                genre={genre}
-                                removeGenre={props.removeGenre}
-                                isClicked={true}
-                                />
-                            );
-                        };
-                    })}
-                    {props.genres.map((genre, x) => {
-                        if (!genre.isSelected && genre.isFiltered) {
-                            return (
-                                <GenreTile
-                                key={x}
-                                genre={genre}
-                                selectGenre={props.selectGenre}
-                                isClicked={false}
-                                />
-                            );
-                        };
-                    })}
-                </div>
+                {props.selectedGenres.map((genre, x) => {
+                    if (genre.isSelected) {
+                        return (
+                            <GenreTile
+                            key={x}
+                            genre={genre}
+                            removeGenre={props.removeGenre}
+                            isClicked={true}
+                            />
+                        );
+                    };
+                })}
+                {props.genres.map((genre, x) => {
+                    if (!genre.isSelected && genre.isFiltered) {
+                        return (
+                            <GenreTile
+                            key={x}
+                            genre={genre}
+                            selectGenre={props.selectGenre}
+                            isClicked={false}
+                            />
+                        );
+                    };
+                })}
             </ul>
         ) : (
             <div className="genres">

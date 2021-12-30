@@ -15,9 +15,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node server",
-    "nodemon-server": "nodemon server",
+    "server-nodemon": "nodemon server",
     "dev": "run-p server start",
-    "nodemon-dev": "run-p nodemon-server start"
+    "dev-nodemon": "run-p nodemon-server start"
 
   },
   "browserslist": {

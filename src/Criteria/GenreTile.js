@@ -5,7 +5,7 @@ import { useState } from "react/cjs/react.development";
 const GenreTile = (props) => {
     
     const isClickedStyle = {
-        backgroundColor: '#53D8FB'
+        backgroundColor: '#74BAF5'
     };
 
     const isNotClickedStyle = {

@@ -70,7 +70,7 @@ function WebPlayback(props) {
             <>
                 <div className="container">
                     <div className="main-wrapper">
-                        <b> Instance not active. Transfer your playback using your Spotify app </b>
+                        {<b> Instance not active. Transfer your playback using your Spotify app </b>}
                     </div>
                 </div>
             </>)

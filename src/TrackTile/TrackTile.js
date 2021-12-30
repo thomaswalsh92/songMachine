@@ -35,13 +35,13 @@ const TrackTile = (props) => {
                 : 
                     <img className="albumArt" src={props.artURL}/>}
             </div>
-            <div className="trackMetaDataContainer">
+            <div className="trackMetadataContainer">
                 {(props.isSeed && !props.isSelected) ?
-                    <div className="trackMetaDataUnselected">
+                    <div className="trackMetadataUnselected">
                         <p>Add a seed</p>
                     </div>
                 : 
-                    <div className="trackMetaDataSelected">
+                    <div className="trackMetadataSelected">
                         <p>Track: {props.trackName}</p>
                         <p>Artist: {props.artist}</p>
                         <p>Album: {props.album}</p>
