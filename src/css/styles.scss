@@ -47,11 +47,19 @@ p {
 button {
     font-family: 'Work Sans';
     font-size: 0.75rem;
+    color: $black;
 }
 
 input {
     font-family: 'Work Sans';
     font-size: 0.75rem;
+    color: $black;
+}
+
+span {
+    font-family: 'Work Sans';
+    font-size: 0.75rem;
+    color: $black;
 }
 
 
@@ -157,46 +165,83 @@ input {
 
 .genreContainer {
     button {
+
         p {
             font-family: 'Work Sans';
             
         }
-        margin: 0 1rem 0.5rem 0.5rem;
+        margin: 0rem 1rem 0.5rem 0.5rem;
+        margin-left: 1rem;
         font-size: 0.6rem;
         color: $black;
     }
 }
 
 .genreHeader {
-    padding-top: 0.5rem;
-    padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
+    margin: 0.5rem 1rem 0.5rem 1rem;
 }
 .genreFilter {
     margin: 0 1rem 0 1rem;
 }
 
 .genres {
-    /* background-color: $lightGrey;
-    width: 500px;
-    height: 500px; 
-    margin: auto;
-    margin-top: 2rem; */
+    margin: 0.5rem 1rem 0.5rem 1rem;
     display: flex;
     flex-wrap: wrap;
 }
 
 .genreTile {
-    margin: 0 0.5rem 0.4rem 0.5rem;
+    margin: 0.5rem 0.5rem 0 0;
     cursor: pointer;
     border-radius: 0.4rem;
-    padding: 0.1rem 0.4rem;
+    padding: 0.2rem 0.4rem 0.1rem 0.4rem;
     height: 0.8rem;
     display: flex;
-    place-items: center;
+    place-items: left;
     p { 
         font-size: 0.6rem;
     }
+}
+
+//RangeSlider specific styles 
+
+.rangeSlider {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+
+    span {
+        color: $black;
+        font-weight: 400;
+        font-size: 0.6rem;
+    }
+}
+
+
+input[type='range'] {
+    width: 100%;
+    height: 6px;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    //background-color: linear-gradient(to right, #74BAF5 0%, #74BAF5 50%, #ececec 50%, #ececec 100%);
+    background-image: linear-gradient(to right, #74BAF5 0%, #74BAF5 50%, #ececec 50%, #ececec 100%);
+}
+
+
+input[type='range']::-webkit-slider-thumb {
+    width: 12px;
+    -webkit-appearance: none;
+    height: 12px;
+    border-radius: 6px;
+    cursor: ew-resize;
+    background: $lightBlue;
+}
+
+.unitContainer {
+    display: flex;
+    margin-top: 1rem;
+    width: 100%;
 }
 
 //Seed specific styles 

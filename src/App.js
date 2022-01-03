@@ -33,7 +33,13 @@ function App() {
   //Selecting a genreTile will add the relevant genreObject to this 
   //array.
   const [selectedGenres, setSelectedGenres] = useState([]); 
-  
+
+  const [popularity, setPopularity] = useState(50)
+
+  const [energy, setEnergy] = useState(50)
+
+  const [tempo, setTempo] = useState(120)
+
   const [seedTracks, setSeedTracks] = useState([undefined, undefined, undefined]);
 
   const [searchedTracks, setSearchedTracks] = useState([]);
@@ -67,7 +73,8 @@ function App() {
     initGenres(); 
   }, []);
 
-  //GENRE SPECIFIC HANDLER FUNCTIONS
+  //CRITERIA HANDLER FUNCTIONS
+  //GENRE HANDLER FUNCTIONS
   //Sorts the selectedGenres state based on when ever changed.
   //TO-DO Re-factor for object model.
   // useEffect(() => {
@@ -178,9 +185,22 @@ function App() {
     };
   };
 
+  //RANGE SLIDER HANDLER FUNCTIONS
+  const updatePopularity = (value) => {
+    setPopularity(value);
+  };
+
+  const updateEnergy = (value) => {
+    setEnergy(value);
+  };
+
+  const updateTempo = (value) => {
+    setTempo(value);
+  };
+
   //SUGGESTION Specific functions
   const generateSuggestions = async () => {
-    let suggestion = await getRecommendations(seedTracks, selectedGenres);
+    let suggestion = await getRecommendations(seedTracks, selectedGenres, criteria);
     await setSuggestedTrack(suggestion)
   };
 
@@ -230,6 +250,12 @@ function App() {
       selectGenre={selectGenre}
       removeGenre={removeGenre}
       filterGenres={filterGenres}
+      popularity={popularity}
+      updatePopularity={updatePopularity}
+      energy={energy}
+      updateEnergy={updateEnergy}
+      tempo={tempo}
+      updateTempo={updateTempo}
       />    
       <Seeds 
       seedTracks={seedTracks}

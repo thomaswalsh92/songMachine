@@ -1,4 +1,4 @@
-async function getRecommendations(seedTracks, selectedGenres) {
+async function getRecommendations(seedTracks, selectedGenres, criteria) {
     
     let artistsStr = '';
     let genresStr = '';

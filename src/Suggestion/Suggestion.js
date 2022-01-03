@@ -1,10 +1,7 @@
 import SuggestedTrack from "./SuggestedTrack";
 import Player from "../Player/Player";
-import { useEffect } from "react";
 
 const Suggestion = (props) => {
-
-    console.log (props.suggestedTrack)
 
     const handleClick = () => {
         props.generateSuggestions();

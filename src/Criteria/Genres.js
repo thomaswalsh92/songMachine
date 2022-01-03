@@ -9,12 +9,12 @@ const Genres = (props) => {
     const [showAll, setShowAll] = useState(false);
 
     const showLessStyle = {
-        maxHeight: '4rem',
+        maxHeight: '5rem',
         overflowY: 'scroll'
     };
 
     const showAllStyle = {
-        maxHeight: '300px',
+        maxHeight: '1000px',
         overflowY: 'auto'
     };
 

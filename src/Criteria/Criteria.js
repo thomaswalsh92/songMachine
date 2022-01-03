@@ -16,9 +16,28 @@ const Criteria = (props) => {
             filterGenres={props.filterGenres}
             />
             <RangeSlider 
+            parameter="popularity"
+            min={0}
+            max={100}
+            unit={'%'}
+            criteria={props.popularity}
+            updateCriteria={props.updatePopularity}
+            />
+            <RangeSlider 
             parameter="energy"
             min={0}
             max={100}
+            unit={'%'}
+            criteria={props.energy}
+            updateCriteria={props.updateEnergy}
+            />
+            <RangeSlider
+            parameter="tempo"
+            min={60}
+            max={250}
+            unit={'BPM'}
+            criteria={props.tempo}
+            updateCriteria={props.updateTempo}
             />
         </div>
     )
