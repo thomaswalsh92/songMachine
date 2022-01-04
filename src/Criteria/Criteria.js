@@ -19,6 +19,7 @@ const Criteria = (props) => {
             parameter="popularity"
             min={0}
             max={100}
+            start={50}
             unit={'%'}
             criteria={props.popularity}
             updateCriteria={props.updatePopularity}
@@ -27,14 +28,16 @@ const Criteria = (props) => {
             parameter="energy"
             min={0}
             max={100}
+            start={50}
             unit={'%'}
             criteria={props.energy}
             updateCriteria={props.updateEnergy}
             />
             <RangeSlider
             parameter="tempo"
-            min={60}
+            min={50}
             max={250}
+            start={150}
             unit={'BPM'}
             criteria={props.tempo}
             updateCriteria={props.updateTempo}

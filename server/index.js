@@ -127,9 +127,17 @@ app.get('/api/search', async (req, res) => {
 });
 
 app.get('/api/recommendations', async (req, res) => {
-  const url = `https://api.spotify.com/v1/recommendations?limit=1&seed_artists${req.query.artists}&seed_genres=${req.query.genres}&seed_tracks=${req.query.tracks}`
-  //console.log (req.query.artists, req.query.genres, req.query.tracks);
-  
+  let url = `https://api.spotify.com/v1/recommendations?limit=1&seed_artists=${req.query.artists}&seed_genres=${req.query.genres}&seed_tracks=${req.query.tracks}`//&target_energy=${req.query.energy}&target_tempo=${req.query.tempo}`
+  if (req.query.popularity) {
+    url = url.concat (`&target_popularity=${req.query.popularity}`)
+  }
+  if (req.query.energy) {
+    url = url.concat (`&target_energy=${req.query.energy}`)
+  }
+  if (req.query.tempo) {
+    url = url.concat (`&target_tempo=${req.query.tempo}`)
+  }
+  console.log (url)
   const response = await fetch (url, {
     method: 'GET',
     headers : {

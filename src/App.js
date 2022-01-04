@@ -20,6 +20,10 @@ import getSearch from './utility/getSearch';
 import './css/reset.css';
 import './css/styles.css';
 
+//noUiSlider 
+import noUiSlider from 'nouislider-react';
+import "nouislider/distribute/nouislider.css";
+
 function App() {
 
   //USE STATE HOOKS
@@ -34,11 +38,11 @@ function App() {
   //array.
   const [selectedGenres, setSelectedGenres] = useState([]); 
 
-  const [popularity, setPopularity] = useState(50)
+  const [popularity, setPopularity] = useState(50);
 
-  const [energy, setEnergy] = useState(50)
+  const [energy, setEnergy] = useState(50);
 
-  const [tempo, setTempo] = useState(120)
+  const [tempo, setTempo] = useState(150);
 
   const [seedTracks, setSeedTracks] = useState([undefined, undefined, undefined]);
 
@@ -200,7 +204,7 @@ function App() {
 
   //SUGGESTION Specific functions
   const generateSuggestions = async () => {
-    let suggestion = await getRecommendations(seedTracks, selectedGenres, criteria);
+    let suggestion = await getRecommendations(seedTracks, selectedGenres, popularity, energy, tempo);
     await setSuggestedTrack(suggestion)
   };
 

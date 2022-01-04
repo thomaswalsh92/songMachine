@@ -65,6 +65,7 @@ const Genres = (props) => {
             </div>
             )}
         {showAll ? <button onClick={handleClick}>Show less -</button> : <button onClick={handleClick}>Show all +</button>}
+        <div className='spacer'> </div>
     </div>
     );
 };

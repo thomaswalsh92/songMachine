@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "node-fetch": "^2.0.0",
+    "nouislider-react": "^3.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
@@ -17,8 +18,7 @@
     "server": "node server",
     "server-nodemon": "nodemon server",
     "dev": "run-p server start",
-    "dev-nodemon": "run-p nodemon-server start"
-
+    "dev-nodemon": "run-p server-nodemon start"
   },
   "browserslist": {
     "production": [
