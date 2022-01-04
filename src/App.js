@@ -39,10 +39,13 @@ function App() {
   const [selectedGenres, setSelectedGenres] = useState([]); 
 
   const [popularity, setPopularity] = useState(50);
+  const [popularityChecked, setPopularityChecked] = useState(false);
 
   const [energy, setEnergy] = useState(50);
+  const [energyChecked, setEnergyChecked] = useState(false);
 
   const [tempo, setTempo] = useState(150);
+  const [tempoChecked, setTempoChecked] = useState(false);
 
   const [seedTracks, setSeedTracks] = useState([undefined, undefined, undefined]);
 
@@ -81,6 +84,7 @@ function App() {
   //GENRE HANDLER FUNCTIONS
   //Sorts the selectedGenres state based on when ever changed.
   //TO-DO Re-factor for object model.
+  
   // useEffect(() => {
 
   // }, [selectedGenres]);
@@ -194,17 +198,29 @@ function App() {
     setPopularity(value);
   };
 
+  const updatePopularityChecked = (bool) => {
+    setPopularityChecked(bool);
+  }
+
   const updateEnergy = (value) => {
     setEnergy(value);
   };
+
+  const updateEnergyChecked = (bool) => {
+    setEnergyChecked(bool);
+  }
 
   const updateTempo = (value) => {
     setTempo(value);
   };
 
+  const updateTempoChecked = (bool) => {
+    setTempoChecked(bool);
+  }
+
   //SUGGESTION Specific functions
   const generateSuggestions = async () => {
-    let suggestion = await getRecommendations(seedTracks, selectedGenres, popularity, energy, tempo);
+    let suggestion = await getRecommendations(seedTracks, selectedGenres, popularity, popularityChecked, energy, energyChecked, tempo, tempoChecked);
     await setSuggestedTrack(suggestion)
   };
 
@@ -254,12 +270,21 @@ function App() {
       selectGenre={selectGenre}
       removeGenre={removeGenre}
       filterGenres={filterGenres}
+      //
       popularity={popularity}
       updatePopularity={updatePopularity}
+      popularityChecked={popularityChecked}
+      updatePopularityChecked={updatePopularityChecked}
+      //
       energy={energy}
       updateEnergy={updateEnergy}
+      energyChecked={energyChecked}
+      updateEnergyChecked={updateEnergyChecked}
+      //
       tempo={tempo}
       updateTempo={updateTempo}
+      tempoChecked={tempoChecked}
+      updateTempoChecked={updateTempoChecked}
       />    
       <Seeds 
       seedTracks={seedTracks}

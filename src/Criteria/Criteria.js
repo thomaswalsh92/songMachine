@@ -23,6 +23,8 @@ const Criteria = (props) => {
             unit={'%'}
             criteria={props.popularity}
             updateCriteria={props.updatePopularity}
+            criteriaChecked={props.popularityChecked}
+            updateCriteriaChecked={props.updatePopularityChecked}
             />
             <RangeSlider 
             parameter="energy"
@@ -32,6 +34,8 @@ const Criteria = (props) => {
             unit={'%'}
             criteria={props.energy}
             updateCriteria={props.updateEnergy}
+            criteriaChecked={props.energyChecked}
+            updateCriteriaChecked={props.updateEnergyChecked}
             />
             <RangeSlider
             parameter="tempo"
@@ -41,6 +45,8 @@ const Criteria = (props) => {
             unit={'BPM'}
             criteria={props.tempo}
             updateCriteria={props.updateTempo}
+            criteriaChecked={props.tempoChecked}
+            updateCriteriaChecked={props.updateTempoChecked}
             />
         </div>
     )

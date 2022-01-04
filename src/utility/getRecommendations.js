@@ -1,10 +1,10 @@
-async function getRecommendations(seedTracks, selectedGenres, popularity, energy, tempo) {
+async function getRecommendations(seedTracks, selectedGenres, popularity, popularityChecked, energy, energyChecked, tempo, tempoChecked) {
     
     let artistsStr = '';
     let genresStr = '';
     let tracksStr = '';
     let comma = ','
-    let energyAdjusted = null;
+    
 
     const usedTracks = seedTracks.filter((track) => {
         if (track) {
@@ -28,10 +28,23 @@ async function getRecommendations(seedTracks, selectedGenres, popularity, energy
         };
     };
 
-    energyAdjusted = (popularity / 100).toFixed(1);
-    console.log (energyAdjusted)
+    let popularityAdjusted = '';
+    let energyAdjusted = '';
+    let tempoAdjusted = '';
 
-    const response = await fetch(`/api/recommendations?artists=${artistsStr}&genres=${genresStr}&tracks=${tracksStr}&popularity=${popularity}&energy=${energyAdjusted}&tempo=${tempo}`);
+    if (popularityChecked) {
+        popularityAdjusted = popularity;
+    }
+
+    if (energyChecked) {
+        energyAdjusted = (energy / 100).toFixed(1);
+    }
+    
+    if (tempoChecked) {
+        tempoAdjusted = tempo;
+    }
+    
+    const response = await fetch(`/api/recommendations?artists=${artistsStr}&genres=${genresStr}&tracks=${tracksStr}&popularity=${popularityAdjusted}&energy=${energyAdjusted}&tempo=${tempoAdjusted}`);
     const json = await response.json();
     console.log (json)
     return (json)
