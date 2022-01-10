@@ -48,10 +48,18 @@ const Search = (props) => {
                     })}
                     </ul>
                     : 
-                    <div></div>}    
+                    null
+                    }   
+                <div className="searchInfoContainer">
+                    <div className="searchInfo">
+                    <p>Search for tracks</p>
+                    </div>
+                </div>
             </div>
         </div>
     ) 
 };
+
+{/* < v*/}
 
 export default Search;
