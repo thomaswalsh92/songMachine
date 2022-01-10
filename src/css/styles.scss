@@ -80,6 +80,14 @@ input[type=text] {
     }
 }
 
+//Login specific styles 
+
+.btn-spotify {
+    font-family: 'Work Sans';
+    color: $black;
+    text-decoration-color: $black ;
+    size: 1rem;
+}
 //Suggestion specific styles 
 
 .suggestion {
@@ -167,10 +175,31 @@ input[type=text] {
 
 //Player specific styles 
 
-.player {
-    height: 100px;
+.playerContainer {
     width: 100%;
+}
+.player {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    place-items: center;
+    width: 100%;
+    background-color: $veryLightGrey;
+    padding: 1rem;
+    p {
+        font-family: 'VT323';
+        font-size: 1.5rem;
+        text-align: center;
+        color: $black;
+        padding: 0 2rem 0 2rem;
+    }
+}
+
+.widgetPlaceholder {
+    height: 60px;
+    width: 200px;
     background-color: $lightGrey;
+
 }
 
 // Criteria specific styles
@@ -314,8 +343,8 @@ input[type='range']::-webkit-slider-thumb {
     width: 100%;
     min-height: 200%;
     position: absolute;
-    background-image: linear-gradient(to right, $lightBlue, $darkBlue);
-    background: $midGrey;
+   //background-image: linear-gradient(to right, $lightBlue, $darkBlue);
+   background: white;
 }
 
 

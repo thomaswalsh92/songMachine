@@ -19,6 +19,7 @@ import getSearch from './utility/getSearch';
 //CSS
 import './css/reset.css';
 import './css/styles.css';
+//import './css/WedSDKApp.css'
 
 function App() {
 
@@ -266,6 +267,7 @@ function App() {
       <Suggestion 
       generateSuggestions={generateSuggestions}
       suggestedTrack={suggestedTrack}
+      token={token}
       /> 
       <Criteria 
       genres={genres}
@@ -294,7 +296,7 @@ function App() {
       openSearch={openSearch}
       deleteTrack={deleteTrack}
       />  
-      { (token === '') ? <Login/> : <WebPlayback token={token} /> }
+      {/* { (token === '') ? <Login/> : <WebPlayback token={token} /> } */}
     </div>
   )
 };

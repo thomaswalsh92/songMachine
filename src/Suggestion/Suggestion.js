@@ -10,7 +10,7 @@ const Suggestion = (props) => {
     return (
         
         <div className="suggestion">
-            <ul className="suggestedTrack">
+            {/* <ul className="suggestedTrack">
                 {props.suggestedTrack ? 
                     <SuggestedTrack
                     trackName={props.suggestedTrack.tracks[0].name}
@@ -24,8 +24,11 @@ const Suggestion = (props) => {
                     trackSuggested={false}
                     /> 
                 }
-            </ul>
-            <Player />
+            </ul> */}
+            <Player 
+            suggestedTrack={props.suggestedTrack}
+            token={props.token}
+            />
             <button className="suggestButton" onClick={handleClick}><p>Suggest</p></button>
         </div>
     )
