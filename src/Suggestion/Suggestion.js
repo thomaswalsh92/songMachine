@@ -16,7 +16,7 @@ const Suggestion = (props) => {
                     trackName={props.suggestedTrack.tracks[0].name}
                     artist={props.suggestedTrack.tracks[0].artists[0].name}
                     album={props.suggestedTrack.tracks[0].album.name}
-                    artURL={props.suggestedTrack.tracks[0].album.images[2].url}
+                    artURL={props.suggestedTrack.tracks[0].album.images[1].url}
                     trackSuggested={true}
                     /> 
                 : 

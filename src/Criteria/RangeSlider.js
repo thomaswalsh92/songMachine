@@ -1,11 +1,11 @@
-import { useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const RangeSlider = (props) => {
 
     const input = useRef();
     const unit = useRef();
     const toggle = useRef();
-    const slider = useRef();
+    const sliderContainer = useRef();
 
     const handleChangeInput = () => {
         var value = (input.current.value-input.current.min)/(input.current.max-input.current.min)*100
@@ -22,21 +22,26 @@ const RangeSlider = (props) => {
         }
     }
 
-    if  (slider.current) {
+    if  (sliderContainer.current) {
         if (props.criteriaChecked) {
-            slider.current.style.display = "block";
+            sliderContainer.current.style.display = "block";
         } else {
-            slider.current.style.display = "none";
+            sliderContainer.current.style.display = "none";
         }
     } 
 
+    //Ensures that sliders are initialised with correct styling.
+    useEffect(() => {
+        handleChangeInput();        
+    }, []);
+    
     return (
     <div className="rangeSlider">
         <div className="rangeSliderHeader">
             <input ref={toggle} type="checkbox" onClick={handleChangeToggle}></input>
             <h3>{props.parameter.toUpperCase()}</h3>
         </div>       
-        <div className="sliderContainer" ref={slider}>
+        <div className="sliderContainer" ref={sliderContainer}>
             <span ref={unit} className="unit">{`${props.criteria} ${props.unit}`}</span>
             <input ref={input} onInput={handleChangeInput} type="range" min={props.min} max={props.max} defaultValue={props.start}/>
         </div>

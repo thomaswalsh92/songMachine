@@ -62,6 +62,11 @@ span {
     color: $black;
 }
 
+input[type=text] {
+    height: 1rem;
+    border: none;
+    border-radius: 1rem;
+}
 
 //Header specific styles 
 
@@ -102,29 +107,49 @@ span {
 
 .suggestedTrackContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 10rem;
+    //height: 16rem;
 }
 
 .suggestedTrackMetadata {
-    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 64px;
+    max-height: 80px;
+    min-width: 192px;
+    max-width: 192px;
     padding: 0.5rem;
     background-color: $lightGrey;
     border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    //overflow: scroll;
+}
+
+.suggestedTrackAlbumArtContainer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    img {
+        height: 128px;
+        width: 128px;
+    }
 }
 
 .suggestedTrackMetadataPlaceholder {
     height: 48px;
-    width: 128px;
-    margin-left: 1rem;
+    width: 192px;
     border-radius: 0.5rem;
     background-color: $lightGrey;
+    margin-bottom: 1rem;
 }
 
 .suggestedTrackAlbumArtPlaceholder { 
-    height: 64px;
-    width: 64px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 96px;
+    width: 96px;
     background-color: $lightGrey;
 }
 
@@ -151,6 +176,7 @@ span {
 // Criteria specific styles
 .criteria {
     background-color: white;
+    padding-bottom: 0.5rem;
 }
 .criteriaHeader {
     height: 2.25rem;
@@ -168,8 +194,8 @@ span {
     height: 2px;
     width: 100%;
 }
-//genres specific styles
 
+//genres specific styles
 .genreContainer {
     button {
         margin: 0 0 0 0;
@@ -211,12 +237,11 @@ span {
 }
 
 //RangeSlider specific styles 
-
 .rangeSlider {
     margin-left: 1rem;
     margin-right: 1rem;
     margin-top: 1rem;
-    padding-bottom: 0.5rem;
+    //padding-bottom: 0.5rem;
 
     span {
         color: $black;
@@ -232,6 +257,10 @@ span {
     }
 }
 
+.sliderContainer {
+    margin-top: 5px;
+}
+
 input[type='checkbox'] {
     margin: 1px 0 0 0;
     height: 0.6rem;
@@ -244,8 +273,7 @@ input[type='range'] {
     border-radius: 4px;
     -webkit-appearance: none;
     margin-left: 0;
-    //background-color: linear-gradient(to right, #74BAF5 0%, #74BAF5 50%, #ececec 50%, #ececec 100%);
-    background-image: linear-gradient(to right, #74BAF5 0%, #74BAF5 50%, #ececec 50%, #ececec 100%);
+    background-color: linear-gradient(to right, #74BAF5 0%, #74BAF5 50%, #ececec 50%, #ececec 100%);
 }
 
 
@@ -262,7 +290,6 @@ input[type='range']::-webkit-slider-thumb {
 
 
 //Seed specific styles 
-
 .seeds {
     background-color: white;
 }
@@ -283,28 +310,70 @@ input[type='range']::-webkit-slider-thumb {
 
 
 //Search specific styles 
-
-.searchResults {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.modalBG {
+    width: 100%;
+    min-height: 200%;
+    position: absolute;
+    background-image: linear-gradient(to right, $lightBlue, $darkBlue);
+    background: $midGrey;
 }
 
-//Track tile specific styles
 
+.search {
+    min-height: 500%;
+    overflow: scroll;
+
+}
+
+.searchControls {
+    position: fixed;
+    background-image: linear-gradient(to right, $red, $orange);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2.5fr 0.25fr 1fr 1fr 0.25fr;
+    button {
+        margin-left: 0;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    }
+}
+
+.searchInput {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.searchSubmit {
+    grid-column-start: 2;
+    grid-column-start: 3;
+}
+
+.searchResults {
+    padding: 0.5rem;
+    padding-top: 5rem;
+}
+
+
+
+
+
+//Track tile specific styles
 .trackTile {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
     margin-bottom: 1rem;
     justify-content: space-between;
     background-color: $veryLightGrey;
-    place-items: center;
-    justify-content: flex-start;
+    place-items: left;
+    align-items: center;
     height: 6rem;
     border-radius: 0.75rem;
 }
 .trackImageContainer {
     height: 64px;
     width: 64px;
-    margin-left: 1rem;
+    margin: auto;
 }
 .albumArtPlaceholder { 
     height: 64px;
@@ -313,7 +382,13 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .trackMetadataContainer {
-    margin-left: 1rem;
+    float: left;
+    margin-left: 0.5rem;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    max-height: 50%;
+    max-width: 80%;
+    overflow: hidden;
 }
 
 .trackMetadataUnselected {
@@ -324,8 +399,9 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .trackAction {
-    margin-left: 1rem;
-    float: right;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    cursor: pointer;
     img {
         color: red;
     }

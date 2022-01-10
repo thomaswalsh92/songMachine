@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 import GenreTile from './GenreTile'
 import GenreFilter from './GenreFilter';
 
@@ -22,6 +22,11 @@ const Genres = (props) => {
         showAll ? setShowAll (false) : setShowAll (true);
     };
 
+    // if (props.genres && showButton) {
+    //     showButton.current.style.display = 'block';
+    //  } else {
+    //     showButton.current.style.display = 'none';
+    // }
     return (
         
     <div className="genreContainer" >
@@ -64,7 +69,10 @@ const Genres = (props) => {
                 <p>Loading...</p>
             </div>
             )}
-        {showAll ? <button onClick={handleClick}>Show less -</button> : <button onClick={handleClick}>Show all +</button>}
+        {showAll ? 
+            <button onClick={handleClick} style={props.genres ? {display: 'block'} : {display: 'none'}}>Show less -</button> 
+            : 
+            <button onClick={handleClick} style={props.genres ? {display: 'block'} : {display: 'none'}}>Show all +</button>}
         <div className='spacer'> </div>
     </div>
     );

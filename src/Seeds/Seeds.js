@@ -6,7 +6,7 @@ const Seeds = (props) => {
         
         <div className="seeds">
             <div className="seedsHeader">
-                <h2>Seeds</h2>
+                <h2>Seed Tracks</h2>
             </div>
             <ul className="seedsContainer">
                 {props.seedTracks.map((track, x) => {

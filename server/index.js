@@ -129,18 +129,15 @@ app.get('/api/search', async (req, res) => {
 app.get('/api/recommendations', async (req, res) => {
   let url = `https://api.spotify.com/v1/recommendations?limit=1&seed_artists=${req.query.artists}&seed_genres=${req.query.genres}&seed_tracks=${req.query.tracks}`//&target_energy=${req.query.energy}&target_tempo=${req.query.tempo}`
   if (req.query.popularity) {
-    console.log ('p is there')
     url = url.concat (`&target_popularity=${req.query.popularity}`)
   }
   if (req.query.energy) {
-    console.log ('e is there')
     url = url.concat (`&target_energy=${req.query.energy}`)
   }
   if (req.query.tempo) {
-    console.log ('n is there')
     url = url.concat (`&target_tempo=${req.query.tempo}`)
   }
-  console.log (url)
+  
   const response = await fetch (url, {
     method: 'GET',
     headers : {

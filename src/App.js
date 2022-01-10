@@ -20,10 +20,6 @@ import getSearch from './utility/getSearch';
 import './css/reset.css';
 import './css/styles.css';
 
-//noUiSlider 
-import noUiSlider from 'nouislider-react';
-import "nouislider/distribute/nouislider.css";
-
 function App() {
 
   //USE STATE HOOKS
@@ -257,6 +253,13 @@ function App() {
 
   return (
     <div className="app">
+      <Search 
+      searchTracks={searchTracks}
+      searchedTracks={searchedTracks}
+      selectTrack={selectTrack}
+      closeSearch={closeSearch}
+      userSearching={userSearching}
+      />
       <div className="header">
         <h1>spotMachine</h1>
       </div>
@@ -291,19 +294,6 @@ function App() {
       openSearch={openSearch}
       deleteTrack={deleteTrack}
       />  
-      {userSearching.searchingNow ? 
-        <Search 
-        searchTracks={searchTracks}
-        searchedTracks={searchedTracks}
-        selectTrack={selectTrack}
-        closeSearch={closeSearch}
-        />
-      : 
-        <div className="notSearching">
-        <p>Search not open</p>
-        </div>
-      }
-      
       { (token === '') ? <Login/> : <WebPlayback token={token} /> }
     </div>
   )
