@@ -4,27 +4,15 @@ import Player from "../Player/Player";
 const Suggestion = (props) => {
 
     const handleClick = () => {
-        props.generateSuggestions();
+        if (props.selectedGenres[0] || props.seedTracks[0]) {
+            props.generateSuggestions();
+        }
+        
     };
     
     return (
         
         <div className="suggestion">
-            {/* <ul className="suggestedTrack">
-                {props.suggestedTrack ? 
-                    <SuggestedTrack
-                    trackName={props.suggestedTrack.tracks[0].name}
-                    artist={props.suggestedTrack.tracks[0].artists[0].name}
-                    album={props.suggestedTrack.tracks[0].album.name}
-                    artURL={props.suggestedTrack.tracks[0].album.images[1].url}
-                    trackSuggested={true}
-                    /> 
-                : 
-                    <SuggestedTrack
-                    trackSuggested={false}
-                    /> 
-                }
-            </ul> */}
             <Player 
             suggestedTrack={props.suggestedTrack}
             token={props.token}

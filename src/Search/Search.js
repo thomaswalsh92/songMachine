@@ -16,7 +16,9 @@ const Search = (props) => {
     
 
     const handleSubmit = () => {
-        props.searchTracks(input.current.value); 
+        if (input.current.value) {
+            props.searchTracks(input.current.value); 
+        };
     };
 
     const handleClose = () => {

@@ -268,6 +268,8 @@ function App() {
       generateSuggestions={generateSuggestions}
       suggestedTrack={suggestedTrack}
       token={token}
+      selectedGenres={selectedGenres}
+      seedTracks={seedTracks}
       /> 
       <Criteria 
       genres={genres}
