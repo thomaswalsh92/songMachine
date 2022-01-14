@@ -77,14 +77,8 @@ function App() {
     initGenres(); 
   }, []);
 
-  //CRITERIA HANDLER FUNCTIONS
-  //GENRE HANDLER FUNCTIONS
-  //Sorts the selectedGenres state based on when ever changed.
-  //TO-DO Re-factor for object model.
-  
-  // useEffect(() => {
 
-  // }, [selectedGenres]);
+  //GENRE HANDLER FUNCTIONS
 
   //takes an array of genres (from spotify API) and packages
   //into objects to be used in Genres component.
@@ -298,7 +292,6 @@ function App() {
       openSearch={openSearch}
       deleteTrack={deleteTrack}
       />  
-      {/* { (token === '') ? <Login/> : <WebPlayback token={token} /> } */}
     </div>
   )
 };

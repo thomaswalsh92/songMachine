@@ -111,7 +111,7 @@ app.get('/api/genres', async (req, res) => {
 
 app.get('/api/search', async (req, res) => {
   
-  const url = `https://api.spotify.com/v1/search?q=${req.query.string}&type=track`
+  const url = `https://api.spotify.com/v1/search?q=${req.query.string}&type=track&limit=21`
   
   const response = await fetch (url, {
     method: 'GET',

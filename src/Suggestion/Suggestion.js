@@ -18,6 +18,11 @@ const Suggestion = (props) => {
             token={props.token}
             />
             <button className="suggestButton" onClick={handleClick}><p>Suggest</p></button>
+            <div class="appInfo">
+                <p>Spot Machine is a tool to help you find new music. Simply select one or more genres or seed tracks, hit suggest and SpotMachine will find related music!</p>
+                <br></br>
+                <p>You can also tweak certain attributes such as popularity to tailor the suggestions you will receive.</p>
+            </div>
         </div>
     )
 };

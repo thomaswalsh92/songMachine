@@ -2,31 +2,37 @@ import { useState, useRef } from 'react';
 import GenreTile from './GenreTile'
 import GenreFilter from './GenreFilter';
 
-// stub test data
-
 const Genres = (props) => {
 
     const [showAll, setShowAll] = useState(false);
-
-    const showLessStyle = {
-        maxHeight: '5rem',
-        overflowY: 'scroll'
+    
+    const getStyle = () => {
+        let style = {};
+            // mobile breakpoint
+        if (window.innerWidth < 768) {
+            style = {
+                height: '1rem'
+            }
+            // 768 breakpoint
+        } else if ((window.innerWidth >= 768) && (window.innerWidth < 1024)) {
+            style = {
+                height: '15rem'
+            }
+            // 1024+ 
+        } else {
+            style = {
+                height: '10rem'
+            }
+        }
+        return style;
+        //return style;
     };
 
-    const showAllStyle = {
-        maxHeight: '1000px',
-        overflowY: 'auto'
-    };
 
     const handleClick = () => {
         showAll ? setShowAll (false) : setShowAll (true);
     };
 
-    // if (props.genres && showButton) {
-    //     showButton.current.style.display = 'block';
-    //  } else {
-    //     showButton.current.style.display = 'none';
-    // }
     return (
         
     <div className="genreContainer" >
@@ -38,7 +44,7 @@ const Genres = (props) => {
         />} */}
         {props.genres? 
             (
-            <ul className="genres" style={showAll ? showAllStyle : showLessStyle}>  
+            <ul className="genres" style={getStyle()}>
                 {props.selectedGenres.map((genre, x) => {
                     if (genre.isSelected) {
                         return (
@@ -69,13 +75,15 @@ const Genres = (props) => {
                 <p>Loading...</p>
             </div>
             )}
-        {showAll ? 
+        {/* {showAll ? 
             <button onClick={handleClick} style={props.genres ? {display: 'block'} : {display: 'none'}}>Show less -</button> 
             : 
             <button onClick={handleClick} style={props.genres ? {display: 'block'} : {display: 'none'}}>Show all +</button>}
-        <div className='spacer'> </div>
+        <div className='spacer'> </div> */}
     </div>
     );
 };
+
+//style={showAll ? getStyling().showAll : getStyling().showLess}>
 
 export default Genres

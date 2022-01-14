@@ -27,7 +27,7 @@ const GenreTile = (props) => {
         onClick={handleClick}
         style={props.isClicked ?  isClickedStyle : isNotClickedStyle}
         >
-            <p>{props.genre.name}</p>
+            <span>{props.genre.name}</span>
         </li>
         )
     };  
