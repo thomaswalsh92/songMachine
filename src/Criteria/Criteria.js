@@ -1,6 +1,7 @@
 import Genres from './Genres'
 import RangeSlider from './RangeSlider';
 
+
 const Criteria = (props) => {
     return (
         

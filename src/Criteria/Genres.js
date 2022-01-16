@@ -11,7 +11,7 @@ const Genres = (props) => {
             // mobile breakpoint
         if (window.innerWidth < 768) {
             style = {
-                height: '1rem'
+                height: '5rem'
             }
             // 768 breakpoint
         } else if ((window.innerWidth >= 768) && (window.innerWidth < 1024)) {
