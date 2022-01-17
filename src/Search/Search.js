@@ -35,9 +35,13 @@ const Search = (props) => {
     
 
     const handleSubmit = () => {
+        const exceptionContent = 'Enter something in the search field to find tracks.'
+
         if (input.current.value) {
             props.searchTracks(input.current.value); 
-        };
+        } else {
+            props.handleException(exceptionContent);
+        }
     };
 
     const handleClose = () => {
@@ -80,7 +84,7 @@ const Search = (props) => {
                 </div>
             </div>
         </>,
-        document.getElementById('portal')
+        document.getElementById('search')
     ) 
 };
 

@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import GenreTile from './GenreTile'
-import GenreFilter from './GenreFilter';
 
 const Genres = (props) => {
 
@@ -25,7 +24,6 @@ const Genres = (props) => {
             }
         }
         return style;
-        //return style;
     };
 
 
@@ -75,15 +73,8 @@ const Genres = (props) => {
                 <p>Loading...</p>
             </div>
             )}
-        {/* {showAll ? 
-            <button onClick={handleClick} style={props.genres ? {display: 'block'} : {display: 'none'}}>Show less -</button> 
-            : 
-            <button onClick={handleClick} style={props.genres ? {display: 'block'} : {display: 'none'}}>Show all +</button>}
-        <div className='spacer'> </div> */}
     </div>
     );
 };
-
-//style={showAll ? getStyling().showAll : getStyling().showLess}>
 
 export default Genres

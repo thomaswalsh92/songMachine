@@ -10,6 +10,7 @@ import Criteria from './Criteria/Criteria';
 import Suggestion from './Suggestion/Suggestion';
 import Seeds from './Seeds/Seeds'
 import Search from './Search/Search'
+import Exception from './Exception/Exception'
 
 //API helper function(s)
 import getGenres from './utility/getGenres';
@@ -54,6 +55,10 @@ function App() {
   //and includes the index of what seed is being searched for.
   const [userSearching, setUserSearching] = useState({searchingNow: false, index: null});
 
+  const [exceptionOccured, setExceptionOccurred] = useState(false);
+
+  const [exceptionContent, setExceptionContent] = useState('');
+
   //USE EFFECT HOOKS
   //gets and sets Token for access to Spotify SDK
   useEffect(() => {
@@ -76,7 +81,6 @@ function App() {
 
     initGenres(); 
   }, []);
-
 
   //GENRE HANDLER FUNCTIONS
 
@@ -246,15 +250,21 @@ function App() {
     setUserSearching({searchingNow: false, index: null})
   };
 
+  //ERROR specific functions
+
+  const handleException = (exceptionContent) => {
+    setExceptionOccurred(true);
+    setExceptionContent(exceptionContent);
+  };
+
+  const clearException = () => {
+    setExceptionOccurred(false);
+    setExceptionContent('');
+  }
+
   return (
     <div className="app">
-      <Search 
-      searchTracks={searchTracks}
-      searchedTracks={searchedTracks}
-      selectTrack={selectTrack}
-      closeSearch={closeSearch}
-      userSearching={userSearching}
-      />
+      
       <div className="header">
         <h1>spotMachine</h1>
       </div>
@@ -264,6 +274,7 @@ function App() {
       token={token}
       selectedGenres={selectedGenres}
       seedTracks={seedTracks}
+      handleException={handleException}
       /> 
       <Criteria 
       genres={genres}
@@ -292,6 +303,19 @@ function App() {
       openSearch={openSearch}
       deleteTrack={deleteTrack}
       />  
+      <Search 
+      searchTracks={searchTracks}
+      searchedTracks={searchedTracks}
+      selectTrack={selectTrack}
+      closeSearch={closeSearch}
+      userSearching={userSearching}
+      handleException={handleException}
+      />
+      <Exception
+      exceptionOccured={exceptionOccured}
+      exceptionContent={exceptionContent}
+      clearException={clearException}
+      />
     </div>
   )
 };

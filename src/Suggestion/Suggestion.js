@@ -3,11 +3,15 @@ import Player from "../Player/Player";
 
 const Suggestion = (props) => {
 
+    
+
     const handleClick = () => {
+        const exceptionContent = 'Select at least one genre or seed track to find new music.'
         if (props.selectedGenres[0] || props.seedTracks[0]) {
             props.generateSuggestions();
+        } else {
+            props.handleException(exceptionContent)
         }
-        
     };
     
     return (

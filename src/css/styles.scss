@@ -109,11 +109,6 @@ input[type=text] {
     }
 }
 
-.suggestButton {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
 .suggestedTrackContainer {
     display: flex;
     flex-direction: column;
@@ -163,6 +158,8 @@ input[type=text] {
 }
 
 .suggestButton {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     background-image: linear-gradient(to right, $red, $orange);
     width: 10rem;
     height: 3rem;
@@ -502,6 +499,55 @@ input[type='range']::-webkit-slider-thumb {
     }
 }
 
+//Exception styles 
+
+.exceptionBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+    position: absolute;
+    //display: flex
+    place-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.exception {
+    width: 360px;
+    height: 200px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, $lightBlue, $darkBlue);
+
+    p {
+        margin: 0 2rem 0 2rem;
+        font-family: 'VT323';
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    button {
+        height: 2rem;
+        width: 8rem;
+        margin-top: 2rem;
+        font-family: 'VT323';
+        font-size: 1.2rem;
+        background-image: linear-gradient(to right, $orange, $red);
+        border-radius: 1rem;
+    }
+}
+
+.exceptionInfo {
+    background: white;
+    padding: 0.5rem 0 0.5rem 0;
+}
 //BREAK POINTS
 
 /* Smartphones (portrait) ----------- */
