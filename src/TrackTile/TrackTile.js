@@ -1,5 +1,5 @@
-import add from '../images/add.svg'
-import trash from '../images/trash.svg'
+import add from '../images/add-64px.png'
+import trash from '../images/delete-64px.png'
 
 //Track tiles rendering dependent on the props passed down
 //from the parent component to allow reusability across 

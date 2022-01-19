@@ -5,12 +5,12 @@ import WebPlayback from './WebPlayback';
 import { get } from 'request';
 
 //Front end components
-import Login from './Login';
 import Criteria from './Criteria/Criteria';
 import Suggestion from './Suggestion/Suggestion';
 import Seeds from './Seeds/Seeds'
 import Search from './Search/Search'
 import Exception from './Exception/Exception'
+import Landing from './Landing/Landing';
 
 //API helper function(s)
 import getGenres from './utility/getGenres';
@@ -21,6 +21,9 @@ import getSearch from './utility/getSearch';
 import './css/reset.css';
 import './css/styles.css';
 //import './css/WedSDKApp.css'
+
+//Images 
+import spotMachine from './images/spotMachine-32px.png'
 
 function App() {
 
@@ -53,10 +56,10 @@ function App() {
 
   //State object that is true when user is searching for track, 
   //and includes the index of what seed is being searched for.
-  const [userSearching, setUserSearching] = useState({searchingNow: false, index: null});
+  const [userSearching, setUserSearching] = useState(false);
+  const [searchingIndex, setSearchingIndex] = useState(null);
 
   const [exceptionOccured, setExceptionOccurred] = useState(false);
-
   const [exceptionContent, setExceptionContent] = useState('');
 
   //USE EFFECT HOOKS
@@ -223,14 +226,16 @@ function App() {
  
 
   const openSearch = (index) => { 
-    setUserSearching({searchingNow: true, index: index})
+    setUserSearching(true);
+    setSearchingIndex(index);
   };
 
   const deleteTrack = (index) => {
     let newSeedTracks = seedTracks;
     newSeedTracks[index] = undefined;
     setSeedTracks(newSeedTracks);
-    setUserSearching({searchingNow: false, index: null})
+    setUserSearching(false);
+    setSearchingIndex(null);
   }
 
   //SEARCH Specific functions
@@ -241,13 +246,14 @@ function App() {
 
   const selectTrack = (track) => {
     let newSeedTracks = seedTracks;
-    seedTracks[userSearching.index] = track;
+    seedTracks[searchingIndex] = track;
     setSeedTracks(newSeedTracks);
     closeSearch();
   };
 
   const closeSearch = () => {
-    setUserSearching({searchingNow: false, index: null})
+    setUserSearching(false);
+    setSearchingIndex(null);
   };
 
   //ERROR specific functions
@@ -267,6 +273,7 @@ function App() {
       
       <div className="header">
         <h1>spotMachine</h1>
+        <img src={spotMachine} />
       </div>
       <Suggestion 
       generateSuggestions={generateSuggestions}
@@ -303,12 +310,16 @@ function App() {
       openSearch={openSearch}
       deleteTrack={deleteTrack}
       />  
+      <Landing 
+      token={token}
+      />
       <Search 
       searchTracks={searchTracks}
       searchedTracks={searchedTracks}
       selectTrack={selectTrack}
       closeSearch={closeSearch}
       userSearching={userSearching}
+      searchingIndex={searchingIndex}
       handleException={handleException}
       />
       <Exception

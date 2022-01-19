@@ -56,6 +56,12 @@ input[type=text] {
   background-image: -webkit-gradient(linear, right top, left top, from(#CE5261), to(#FCA17D));
   background-image: linear-gradient(to left, #CE5261, #FCA17D);
   height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header h1 {
@@ -64,12 +70,41 @@ input[type=text] {
   padding-left: 0.5rem;
 }
 
+.header img {
+  width: 32px;
+  height: 32px;
+  margin-left: 1rem;
+}
+
 .btn-spotify {
   font-family: 'VT323';
   font-size: 1.2rem;
-  -webkit-text-decoration-color: #395CD6;
-          text-decoration-color: #395CD6;
-  size: 1rem;
+  text-decoration: none;
+  -webkit-text-decoration-color: #222222;
+          text-decoration-color: #222222;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-image: -webkit-gradient(linear, right top, left top, from(#FCA17D), to(#CE5261));
+  background-image: linear-gradient(to left, #FCA17D, #CE5261);
+  -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+          filter: drop-shadow(0 0.15rem 0.15rem #474747);
+}
+
+.login a {
+  color: #222222;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .suggestion {
@@ -192,8 +227,8 @@ input[type=text] {
   width: 100%;
   background-color: #f5f4f4;
   padding: 1rem 0 1rem 0;
-  -webkit-filter: drop-shadow(0 0.15rem 0.2rem #474747);
-          filter: drop-shadow(0 0.15rem 0.2rem #474747);
+  -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+          filter: drop-shadow(0 0.15rem 0.15rem #474747);
 }
 
 .player p {
@@ -275,7 +310,6 @@ input[type=text] {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  scrollbar-gutter: auto;
   overflow-y: scroll;
 }
 
@@ -348,8 +382,8 @@ input[type='range']::-webkit-slider-thumb {
 
 .seeds {
   background-color: white;
-  -webkit-filter: drop-shadow(0 0.15rem 0.2rem #474747);
-          filter: drop-shadow(0 0.15rem 0.2rem #474747);
+  -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+          filter: drop-shadow(0 0.15rem 0.15rem #474747);
 }
 
 .seedsHeader {
@@ -368,6 +402,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .search {
+  display: none;
   width: 100%;
   z-index: 2;
   min-height: 140vh;
@@ -376,6 +411,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .searchBg {
+  display: none;
   position: absolute;
   height: 100vh;
   bottom: 400px;
@@ -511,10 +547,12 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .trackAction img {
-  color: red;
+  height: 32px;
+  width: 32px;
 }
 
 .exceptionBg {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -531,6 +569,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .exception {
+  display: none;
   width: 360px;
   height: 200px;
   border-radius: 8px;
@@ -572,6 +611,63 @@ input[type='range']::-webkit-slider-thumb {
 .exceptionInfo {
   background: white;
   padding: 0.5rem 0 0.5rem 0;
+}
+
+.landingBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#74BAF5), to(#395CD6));
+  background-image: linear-gradient(to right, #74BAF5, #395CD6);
+  height: 100vh;
+}
+
+.landing {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+}
+
+.landing p {
+  margin: 1.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.landing button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-image: -webkit-gradient(linear, left top, right top, from(#CE5261), to(#FCA17D));
+  background-image: linear-gradient(to right, #CE5261, #FCA17D);
+  width: 10rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+          filter: drop-shadow(0 0.15rem 0.15rem #474747);
+  font-family: 'VT323';
+  font-size: 20px;
+}
+
+.landingInfo {
+  background: white;
+  width: 100%;
+  -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+          filter: drop-shadow(0 0.15rem 0.15rem #474747);
+  height: 8rem;
+  margin-top: 6rem;
+}
+
+.landingDataDisclaimer {
+  background: white;
+  width: 100%;
+  -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+          filter: drop-shadow(0 0.15rem 0.15rem #474747);
+  height: 6rem;
 }
 
 /* Smartphones (portrait) ----------- */
@@ -637,6 +733,7 @@ input[type='range']::-webkit-slider-thumb {
   }
   .search {
     height: 140%;
+    overflow: hidden;
   }
   .searchResults {
     display: -webkit-box;
@@ -648,7 +745,7 @@ input[type='range']::-webkit-slider-thumb {
     padding: 0;
     padding-top: 1rem;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: hidden;
   }
   .searchResults .trackTile {
     -ms-grid-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
@@ -736,8 +833,8 @@ input[type='range']::-webkit-slider-thumb {
     margin: 2rem;
     margin-top: 8rem;
     border-radius: 8px;
-    -webkit-filter: drop-shadow(0 0.15rem 0.2rem #474747);
-            filter: drop-shadow(0 0.15rem 0.2rem #474747);
+    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+            filter: drop-shadow(0 0.15rem 0.15rem #474747);
   }
   .criteria .criteriaHeader {
     border-radius: 8px 8px 0 0;
@@ -763,8 +860,8 @@ input[type='range']::-webkit-slider-thumb {
   }
   .appInfo {
     display: block;
-    -webkit-filter: drop-shadow(0 0.15rem 0.2rem #474747);
-            filter: drop-shadow(0 0.15rem 0.2rem #474747);
+    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+            filter: drop-shadow(0 0.15rem 0.15rem #474747);
   }
   .seeds {
     -ms-grid-column: 3;
@@ -777,8 +874,8 @@ input[type='range']::-webkit-slider-thumb {
     margin: 2rem;
     margin-top: 8rem;
     border-radius: 8px;
-    -webkit-filter: drop-shadow(0 0.15rem 0.2rem #474747);
-            filter: drop-shadow(0 0.15rem 0.2rem #474747);
+    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #474747);
+            filter: drop-shadow(0 0.15rem 0.15rem #474747);
   }
   .seeds .seedsHeader {
     border-radius: 8px 8px 0 0;
@@ -808,6 +905,15 @@ input[type='range']::-webkit-slider-thumb {
   }
   .trackTile p {
     font-size: 0.55rem;
+  }
+  .landingInfo {
+    margin-top: 12rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+  }
+  .landingDataDisclaimer {
+    width: 24rem;
+    border-radius: 0.5rem;
   }
 }
 

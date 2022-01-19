@@ -12,16 +12,19 @@ const Search = (props) => {
     let width = window.innerWidth;
 
     if (searchBg.current) {
-        if (props.userSearching.searchingNow) {
+        if (props.userSearching) {
             if (width < 1024) {
                 searchBg.current.style.display = 'block'
+                search.current.style.display = 'block'
             } else {
                 searchBg.current.style.display = 'flex'
+                search.current.style.display = 'block'
             }
             
             
         } else {
             searchBg.current.style.display = 'none'
+            search.current.style.display = 'none'
         };
     };
     

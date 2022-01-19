@@ -71,13 +71,22 @@ input[type=text] {
     border-radius: 1rem;
 }
 
+
+//header styles
 .header {
     background-image: linear-gradient(to left, $red, $orange);
     height: 4rem;
+    display: flex;
+    align-items: center;
     h1 {
         padding-top: 0.875rem;
         padding-bottom: 0.875rem;
         padding-left: 0.5rem;
+    }
+    img {
+        width: 32px;
+        height: 32px;
+        margin-left: 1rem;
     }
 }
 
@@ -86,9 +95,27 @@ input[type=text] {
 .btn-spotify {
     font-family: 'VT323';
     font-size: 1.2rem;
-    text-decoration-color: $darkBlue;
-    size: 1rem;
+    text-decoration: none;
+    text-decoration-color: $black;
+
+} 
+
+.login {
+    display: flex;
+    place-items: center;
+    align-items: center;
+    margin: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-image: linear-gradient(to left, $orange, $red);
+    filter: $dropShadow;
+    a {
+        color: $black;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
+
 //Suggestion styles 
 
 .suggestion {
@@ -171,8 +198,6 @@ input[type=text] {
         font-size: 20px;
     }
 }
-
-$dropShadow: drop-shadow(0 0.15rem 0.2rem #474747);
 
 //Player styles 
 
@@ -270,9 +295,20 @@ $dropShadow: drop-shadow(0 0.15rem 0.2rem #474747);
     height: 5rem;
     display: flex;
     flex-wrap: wrap;
-    scrollbar-gutter: auto;
     overflow-y: scroll;
 }
+
+// .genres::-webkit-scrollbar { 
+//     display: block;
+// }
+
+// .genres::-webkit-scrollbar-thumb{ 
+//     display: block;
+// }
+
+// .genres::-webkit-scrollbar-track{ 
+//     display: block;
+// }
 
 .genreTile {
     margin: 0 0.5rem 0.5rem 0;
@@ -365,13 +401,16 @@ input[type='range']::-webkit-slider-thumb {
 //search styles 
 
 .search {
+    display: none;
     width: 100%;
     z-index: 2;
     min-height: 140vh;
     background-image: linear-gradient(to right, $lightBlue, $darkBlue);
 }
 
+
 .searchBg {
+    display: none;
     position: absolute;
     height: 100vh;
     bottom:  400px;
@@ -495,13 +534,15 @@ input[type='range']::-webkit-slider-thumb {
     grid-column-end: 6;
     cursor: pointer;
     img {
-        color: red;
+        height: 32px;
+        width: 32px;
     }
 }
 
 //Exception styles 
 
 .exceptionBg {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -517,6 +558,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .exception {
+    display: none;
     width: 360px;
     height: 200px;
     border-radius: 8px;
@@ -547,6 +589,57 @@ input[type='range']::-webkit-slider-thumb {
 .exceptionInfo {
     background: white;
     padding: 0.5rem 0 0.5rem 0;
+}
+
+//Landing styles 
+
+.landingBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, $lightBlue, $darkBlue);
+    height: 100vh;
+}
+
+.landing {
+    display: none;
+    flex-direction: column;
+    place-items: center;
+    p { 
+        margin: 1.5rem;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    
+    button {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        background-image: linear-gradient(to right, $red, $orange);
+        width: 10rem;
+        height: 3rem;
+        border-radius: 1.5rem;
+        filter: $dropShadow;
+        font-family: 'VT323';
+        font-size: 20px;
+    }
+}
+
+.landingInfo {
+    background: white;
+    width: 100%;
+    filter: $dropShadow;
+    height: 8rem;
+    margin-top: 6rem;
+}
+
+.landingDataDisclaimer {
+
+    background: white;
+    width: 100%;
+    filter: $dropShadow;
+    height: 6rem;
 }
 //BREAK POINTS
 
@@ -624,7 +717,6 @@ input[type='range']::-webkit-slider-thumb {
     }
 
     .trackMetadataContainer {
-        //overflow: scroll;
         p {
             font-size: 0.55rem;
         }
@@ -634,7 +726,7 @@ input[type='range']::-webkit-slider-thumb {
 
     .search {
         height: 140%;
-        //overflow: scroll;
+        overflow: hidden;
     }
     
     .searchResults {
@@ -644,7 +736,7 @@ input[type='range']::-webkit-slider-thumb {
         padding: 0;
         padding-top: 1rem;
         width: 100%;
-        overflow-y: scroll;
+        overflow-y: hidden;
         .trackTile {
             grid-template-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
             justify-content: space-evenly;
@@ -820,6 +912,19 @@ input[type='range']::-webkit-slider-thumb {
         p {
             font-size: 0.55rem;
         }
+    }
+
+    //1024 landing styles 
+
+    .landingInfo {
+        margin-top: 12rem;
+        width: 24rem;
+        border-radius: 0.5rem;
+    }
+
+    .landingDataDisclaimer {
+        width: 24rem;
+        border-radius: 0.5rem;
     }
 }
  

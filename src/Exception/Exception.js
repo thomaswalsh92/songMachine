@@ -4,12 +4,15 @@ import { useRef } from 'react';
 const Exception = (props) => {
     
     const exceptionBg = useRef();
+    const exception = useRef();
 
     if (exceptionBg.current) {
         if (props.exceptionOccured) {
             exceptionBg.current.style.display = 'flex'
+            exception.current.style.display = 'block'
         } else {
             exceptionBg.current.style.display = 'none'
+            exception.current.style.display = 'none'
         };
     };
 
@@ -20,7 +23,7 @@ const Exception = (props) => {
     return ReactDom.createPortal( 
         <> 
             <div className="exceptionBg" ref={exceptionBg}>
-                    <div className="exception">
+                    <div className="exception" ref={exception}>
                         <div className="exceptionInfo">
                             <p>{props.exceptionContent}</p>
                         </div>

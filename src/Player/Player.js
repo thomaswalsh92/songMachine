@@ -16,8 +16,7 @@ const Player = (props) => {
 
     return (
     
-        <div className="player">
-            {props.token === '' ? <Login/> : null } 
+        <div className="player"> 
             {trackId ? 
                 <iframe src={`https://open.spotify.com/embed/track/${trackId}`} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"> </iframe> 
                 :
