@@ -9,7 +9,7 @@ const Exception = (props) => {
     if (exceptionBg.current) {
         if (props.exceptionOccured) {
             exceptionBg.current.style.display = 'flex'
-            exception.current.style.display = 'block'
+            exception.current.style.display = 'flex'
         } else {
             exceptionBg.current.style.display = 'none'
             exception.current.style.display = 'none'

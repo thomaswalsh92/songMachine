@@ -6,4 +6,3 @@ async function getGenres() {
 };
 
 export default getGenres;
-

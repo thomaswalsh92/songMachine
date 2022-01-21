@@ -2,7 +2,7 @@
 // URL: https://github.com/spotify/spotify-web-playback-sdk-example
 // A full summary of changes can be found in readme.md .
 
-//added /api/genres and /api/recommendation endpoints.
+//added /api/genres, /api/search and /api/recommendation endpoints.
 
 //import required libraries, express as the node framework, request as ... ??, dotenv allows api access codes to be stored in .env file.
 const express = require('express');
