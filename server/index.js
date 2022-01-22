@@ -46,7 +46,8 @@ var app = express();
 app.get('/auth/login', (req, res) => {
 
   // scope defines what access the SDK Will grant
-  var scope = "streaming user-read-email user-read-private"
+  var scope = "streaming"
+  //user-read-email user-read-private
   // state is initialised with the results of generate random string
   var state = generateRandomString(16);
 

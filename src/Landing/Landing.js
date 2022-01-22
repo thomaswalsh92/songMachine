@@ -31,7 +31,7 @@ const Landing = (props) => {
                         </div>
                         {props.token === '' ? <Login/> : null }
                         <div className="landingDataDisclaimer">
-                            <p>Note: spotMachine requires access to your Spotify account to access the Spotify API and Web playback SDK. spotMachine does not access or use any of your listener data.</p>
+                            <p>Note: spotMachine requires access to your Spotify account to access the Spotify API and Web playback SDK. spotMachine does not access or use any of your personal or listener data.</p>
                         </div>
                     </div>
             </div>
