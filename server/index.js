@@ -9,10 +9,9 @@ const express = require('express');
 const request = require('request');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
-const path = require('path');
 
 //specificying the port for the server
-const port = process.env.PORT || 5000
+const port = 5000
 
 //initialing global.access_token to an empty string
 global.access_token = ''
@@ -25,7 +24,7 @@ var spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
 // inits a var with the URI to link 
-var spotify_redirect_uri = `http://localhost:${port}/auth/callback`
+var spotify_redirect_uri = 'http://localhost:3000/auth/callback'
 
 // genereates a random string  to be used later as the state variable in the JSON
 var generateRandomString = function (length) {
@@ -41,13 +40,11 @@ var generateRandomString = function (length) {
 // initialises express to the variable app
 var app = express();
 
-
 // defines the function to be run at the /auth/login end point.
 app.get('/auth/login', (req, res) => {
 
   // scope defines what access the SDK Will grant
-  var scope = "streaming"
-  //user-read-email user-read-private
+  var scope = "streaming user-read-email user-read-private"
   // state is initialised with the results of generate random string
   var state = generateRandomString(16);
 
@@ -158,4 +155,4 @@ app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 });
 
-//app.use(express.static(path.join(__dirname, '../build')));
+//server
