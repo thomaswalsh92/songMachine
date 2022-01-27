@@ -1,6 +1,6 @@
 // This code was originally taken and adapted from the spotify web playback sdk example github repo:
 // URL: https://github.com/spotify/spotify-web-playback-sdk-example
-// A full summary of changes can be found in readme.md .
+// A full summary of changes can be found in readme.md.
 
 //added /api/genres, /api/search and /api/recommendation endpoints.
 
@@ -9,6 +9,7 @@ const express = require('express');
 const request = require('request');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
+const path = require('path');
 
 //specificying the port for the server
 const port = 5000
@@ -24,7 +25,7 @@ var spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
 // inits a var with the URI to link 
-var spotify_redirect_uri = 'http://localhost:3000/auth/callback'
+var spotify_redirect_uri = 'http://localhost:5000/auth/callback'
 
 // genereates a random string  to be used later as the state variable in the JSON
 var generateRandomString = function (length) {
@@ -149,6 +150,12 @@ app.get('/api/recommendations', async (req, res) => {
   .then(data => {
     res.json(data)
   })
+});
+
+app.use(express.static(path.join(__dirname, '../build')));
+
+app.get('/', (req, res) =>  {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(port, () => {
