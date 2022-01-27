@@ -12,7 +12,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 //specificying the port for the server
-const port = 5000
+const port = process.env.PORT || 5000
 
 //initialing global.access_token to an empty string
 global.access_token = ''
