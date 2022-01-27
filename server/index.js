@@ -25,7 +25,7 @@ var spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
 // inits a var with the URI to link 
-var spotify_redirect_uri = 'https://spotmachine.herokuapp.comgit /auth/callback'
+var spotify_redirect_uri = 'https://spotmachine.herokuapp.com/auth/callback'
 
 // genereates a random string  to be used later as the state variable in the JSON
 var generateRandomString = function (length) {
