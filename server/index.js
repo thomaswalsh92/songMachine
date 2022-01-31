@@ -13,8 +13,8 @@ dotenv.config()
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
-//let spotify_redirect_uri = 'https://songmachine.herokuapp.com/auth/callback'
-let spotify_redirect_uri = 'http://localhost:5000/auth/callback'
+let spotify_redirect_uri = 'https://songmachine.herokuapp.com/auth/callback'
+//let spotify_redirect_uri = 'http://localhost:5000/auth/callback'
 
 let generateRandomString = function (length) {
   var text = '';
