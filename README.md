@@ -1,4 +1,4 @@
-## The app 
+## songMachine
 
 songMachine is an app designed to help you find music recommendations from Spotify and play them in the browser. You can select from all of the available genres in Spotify, or select seed artists/tracks and songMachine will use the Spotify APIs to find new music. You can also tailor these suggestions with tweakable attributes such as popularity, energy and tempo. 
 
