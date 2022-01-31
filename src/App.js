@@ -23,7 +23,7 @@ import './css/styles.css';
 //import './css/WedSDKApp.css'
 
 //Images 
-import spotMachine from './images/spotMachine-32px.png'
+import songMachine from './images/songMachine-32px.png'
 
 function App() {
 
@@ -272,8 +272,8 @@ function App() {
     <div className="app">
       
       <div className="header">
-        <h1>spotMachine</h1>
-        <img src={spotMachine} />
+        <h1>songMachine</h1>
+        <img src={songMachine} />
       </div>
       <Suggestion 
       generateSuggestions={generateSuggestions}

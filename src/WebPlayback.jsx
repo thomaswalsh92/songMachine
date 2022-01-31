@@ -32,7 +32,7 @@ function WebPlayback(props) {
         window.onSpotifyWebPlaybackSDKReady = () => {
 
             const player = new window.Spotify.Player({
-                name: 'SpotMachine',
+                name: 'SongMachine',
                 getOAuthToken: cb => { cb(props.token); },
                 volume: 0.5
             });
