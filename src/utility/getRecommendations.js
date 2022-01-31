@@ -46,7 +46,6 @@ async function getRecommendations(seedTracks, selectedGenres, popularity, popula
     
     const response = await fetch(`/api/recommendations?artists=${artistsStr}&genres=${genresStr}&tracks=${tracksStr}&popularity=${popularityAdjusted}&energy=${energyAdjusted}&tempo=${tempoAdjusted}`);
     const json = await response.json();
-    console.log (json)
     return (json)
 };
 
