@@ -20,8 +20,7 @@ let spotify_redirect_uri = 'https://songmachine.herokuapp.com/auth/callback'
 //let spotify_redirect_uri = 'http://localhost:5000/auth/callback'
 
 //run local dev build
-// let spotify_redirect_uri = 'http://localhost:3000/auth/callback'
-
+//let spotify_redirect_uri = 'http://localhost:3000/auth/callback'
 
 
 let generateRandomString = function (length) {

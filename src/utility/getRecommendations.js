@@ -1,10 +1,11 @@
-async function getRecommendations(seedTracks, selectedGenres, popularity, popularityChecked, energy, energyChecked, tempo, tempoChecked) {
+async function getRecommendations(seedTrack0, seedTrack1, seedTrack2, selectedGenres, popularity, popularityChecked, energy, energyChecked, tempo, tempoChecked) {
     
     let artistsStr = '';
     let genresStr = '';
     let tracksStr = '';
     let comma = ','
     
+    let seedTracks = [seedTrack0, seedTrack1, seedTrack2];
 
     const usedTracks = seedTracks.filter((track) => {
         if (track) {

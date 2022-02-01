@@ -48,8 +48,10 @@ function App() {
   const [tempo, setTempo] = useState(150);
   const [tempoChecked, setTempoChecked] = useState(false);
 
-  const [seedTracks, setSeedTracks] = useState([undefined, undefined, undefined]);
-
+  const [seedTrack0, setSeedTrack0] = useState(undefined)
+  const [seedTrack1, setSeedTrack1] = useState(undefined)
+  const [seedTrack2, setSeedTrack2] = useState(undefined)
+  
   const [searchedTracks, setSearchedTracks] = useState([]);
 
   const [suggestedTrack, setSuggestedTrack] = useState(undefined);
@@ -218,7 +220,7 @@ function App() {
 
   //SUGGESTION Specific functions
   const generateSuggestions = async () => {
-    let suggestion = await getRecommendations(seedTracks, selectedGenres, popularity, popularityChecked, energy, energyChecked, tempo, tempoChecked);
+    let suggestion = await getRecommendations(seedTrack0, seedTrack1, seedTrack2, selectedGenres, popularity, popularityChecked, energy, energyChecked, tempo, tempoChecked);
     await setSuggestedTrack(suggestion)
   };
 
@@ -231,9 +233,17 @@ function App() {
   };
 
   const deleteTrack = (index) => {
-    let newSeedTracks = seedTracks;
-    newSeedTracks[index] = undefined;
-    setSeedTracks(newSeedTracks);
+    switch (index) {
+      case 0:
+        setSeedTrack0(undefined)
+        break;
+      case 1: 
+        setSeedTrack1(undefined)
+        break;
+      case 2:
+        setSeedTrack2(undefined)
+        break;
+    }
     setUserSearching(false);
     setSearchingIndex(null);
   }
@@ -245,18 +255,26 @@ function App() {
   };
 
   const selectTrack = (track) => {
-    let newSeedTracks = seedTracks;
-    seedTracks[searchingIndex] = track;
-    setSeedTracks(newSeedTracks);
+    switch (searchingIndex) {
+      case 0:
+        setSeedTrack0(track)
+        break;
+      case 1: 
+        setSeedTrack1(track)
+        break;
+      case 2:
+        setSeedTrack2(track)
+        break;
+    }
     closeSearch();
-  };
+  }
 
   const closeSearch = () => {
     setUserSearching(false);
     setSearchingIndex(null);
   };
 
-  //ERROR specific functions
+  //EXCEPTION specific functions
 
   const handleException = (exceptionContent) => {
     setExceptionOccurred(true);
@@ -280,7 +298,9 @@ function App() {
       suggestedTrack={suggestedTrack}
       token={token}
       selectedGenres={selectedGenres}
-      seedTracks={seedTracks}
+      seedTrack0={seedTrack0}
+      seedTrack1={seedTrack1}
+      seedTrack2={seedTrack2}
       handleException={handleException}
       /> 
       <Criteria 
@@ -306,7 +326,9 @@ function App() {
       updateTempoChecked={updateTempoChecked}
       />    
       <Seeds 
-      seedTracks={seedTracks}
+      seedTrack0={seedTrack0}
+      seedTrack1={seedTrack1}
+      seedTrack2={seedTrack2}
       openSearch={openSearch}
       deleteTrack={deleteTrack}
       />  

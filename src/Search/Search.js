@@ -51,8 +51,6 @@ const Search = (props) => {
         props.closeSearch();
     };
 
-    console.log (props.searchedTracks)
-
     return ReactDom.createPortal( 
         <>
             <div className="searchBg" ref={searchBg}>

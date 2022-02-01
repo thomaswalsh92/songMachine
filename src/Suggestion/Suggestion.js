@@ -7,7 +7,7 @@ const Suggestion = (props) => {
 
     const handleClick = () => {
         const exceptionContent = 'Select at least one genre or seed track to find new music.'
-        if (props.selectedGenres[0] || props.seedTracks[0]) {
+        if (props.selectedGenres[0] || props.seedTrack0|| props.seedTrack1|| props.seedTrack2 ) {
             props.generateSuggestions();
         } else {
             props.handleException(exceptionContent)
