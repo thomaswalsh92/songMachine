@@ -1,12 +1,17 @@
-This project has been built on top of the Spotify Web Playback SDK guide GitHub repo. 
+## songMachine
 
-Full README to be completed. 
+songMachine is an app designed to help you find music recommendations from Spotify and play them in the browser. You can select from all of the available genres in Spotify, or select seed artists/tracks and songMachine will use the Spotify APIs to find new music. You can also tailor these suggestions with tweakable attributes such as popularity, energy and tempo. 
 
-# Web Playback SDK Javascript Tutorial
+## Important information 
 
-This repository contains the source code for the [Web Playback SDK Guide](https://developer.spotify.com/documentation/web-playback-sdk/guide/).
+This project has been built on top of the Spotify Web Playback SDK guide GitHub repo:
+(https://github.com/spotify/spotify-web-playback-sdk-example). 
 
-## Using your own credentials
+The code from this repo has been significantly modified, building off the included server/index.js file which handles the auth flow required for access to Spotify APIs and Web Playback SDK. A custom React frontend has been added to this as well as a number of extra endpoints in server/index.js to handle the calls to Spotify API.
+
+To run songMachine locally you will need to do the following: 
+
+## Get your own credentials
 
 You will need to register your app and get your own credentials from the
 [Spotify for Developers Dashboard](https://developer.spotify.com/dashboard/)
@@ -14,7 +19,7 @@ You will need to register your app and get your own credentials from the
 To do so, go to your Spotify for Developers Dashboard, create your
 application and register the following callback URI:
 
-`http://localhost:3000/auth/callback`
+`http://localhost:5000/auth/callback`
 
 Once you have created your app, create a file called `.env` in the root folder
 of the repository with your Spotify credentials:
@@ -38,28 +43,11 @@ npm install
 
 ## Running the example
 
-Start both client and server with the following command:
+Start the server with the following command:
 
 ```bash
-npm run dev
+npm run server
 ```
 
-The React application will start on `http://localhost:3000`
-
-## Resources
-
-- Follow [@SpotifyPlatform](https://twitter.com/SpotifyPlatform) on Twitter for Spotify for Developers updates.
-- Join the [Spotify for Developers Community Forum](https://community.spotify.com/t5/Spotify-for-Developers/bd-p/Spotify_Developer).
-
-## Code of Conduct
-
-This project adheres to the [Open Source Code of
-Conduct](https://github.com/spotify/code-of-conduct/blob/master/code-of-conduct.md).
-By participating, you are expected to honor this code.
-
-## License
-
-Copyright 2021 Spotify AB.
-
-Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+The server will serve a static file of the React application.
 
