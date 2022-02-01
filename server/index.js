@@ -13,8 +13,16 @@ dotenv.config()
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
-//let spotify_redirect_uri = 'https://songmachine.herokuapp.com/auth/callback'
-let spotify_redirect_uri = 'http://localhost:3000/auth/callback'
+//run on heroku
+let spotify_redirect_uri = 'https://songmachine.herokuapp.com/auth/callback'
+
+//run local server/static build
+//let spotify_redirect_uri = 'http://localhost:5000/auth/callback'
+
+//run local dev build
+// let spotify_redirect_uri = 'http://localhost:3000/auth/callback'
+
+
 
 let generateRandomString = function (length) {
   let text = '';
@@ -133,11 +141,11 @@ app.get('/api/recommendations', async (req, res) => {
   })
 });
 
-// app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, '../build')));
 
-// app.get('/', (req, res) =>  {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.get('/', (req, res) =>  {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
