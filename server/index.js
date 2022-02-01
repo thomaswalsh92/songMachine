@@ -13,27 +13,27 @@ dotenv.config()
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
-let spotify_redirect_uri = 'https://songmachine.herokuapp.com/auth/callback'
-//let spotify_redirect_uri = 'http://localhost:5000/auth/callback'
+//let spotify_redirect_uri = 'https://songmachine.herokuapp.com/auth/callback'
+let spotify_redirect_uri = 'http://localhost:3000/auth/callback'
 
 let generateRandomString = function (length) {
-  var text = '';
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let text = '';
+  let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-  for (var i = 0; i < length; i++) {
+  for (let i = 0; i < length; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return text;
 };
 
-var app = express();
+let app = express();
 
 app.get('/auth/login', (req, res) => {
 
-  var scope = "streaming user-read-email user-read-private"
-  var state = generateRandomString(16);
+  let scope = "streaming user-read-email user-read-private"
+  let state = generateRandomString(16);
 
-  var auth_query_parameters = new URLSearchParams({
+  let auth_query_parameters = new URLSearchParams({
     response_type: "code",
     client_id: spotify_client_id,
     //scope: scope,
@@ -46,9 +46,9 @@ app.get('/auth/login', (req, res) => {
 
 app.get('/auth/callback', (req, res) => {
 
-  var code = req.query.code;
+  let code = req.query.code;
 
-  var authOptions = {
+  let authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
@@ -133,11 +133,11 @@ app.get('/api/recommendations', async (req, res) => {
   })
 });
 
-app.use(express.static(path.join(__dirname, '../build')));
+// app.use(express.static(path.join(__dirname, '../build')));
 
-app.get('/', (req, res) =>  {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.get('/', (req, res) =>  {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)

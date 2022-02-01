@@ -24,8 +24,9 @@
     "eject": "react-scripts eject",
     "server": "node server",
     "server-nodemon": "nodemon server",
-    "dev": "run-p server start",
-    "dev-nodemon": "run-p server-nodemon start"
+    "dev": "run-p server start-fe",
+    "dev-nodemon": "run-p server-nodemon start-fe",
+    "start-fe": "react-scripts start"
   },
   "browserslist": {
     "production": [
