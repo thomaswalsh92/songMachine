@@ -1,5 +1,6 @@
 import add from '../images/add-64px.png'
 import trash from '../images/delete-64px.png'
+import spotify from '../images/spotify-icon-black.png'
 
 //Track tiles rendering dependent on the props passed down
 //from the parent component to allow reusability across 
@@ -40,13 +41,21 @@ const TrackTile = (props) => {
                     <div className="trackMetadataUnselected">
                         <p>Add a seed</p>
                     </div>
-                : 
+                :   
                     <div className="trackMetadataSelected">
-                        <p>Track: {props.trackName}</p>
-                        <p>Artist: {props.artist}</p>
-                        <p>Album: {props.album}</p>
+                        <p>{props.trackName}</p>
+                        <p className="artist">{props.artist}</p>
+                        <p>{props.album}</p>
                     </div>
                 }  
+            </div>
+            <div className="spotifyIconContainer">
+                {((props.isSeed && props.isSelected) || props.isSearched) ? 
+                    <a href={props.listenURL} target="_blank"><img src={spotify}></img></a>
+                :
+                    null
+                }
+                
             </div>
             <div className="trackAction">
                 {!props.isSelected ? 
