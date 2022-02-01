@@ -495,8 +495,8 @@ input[type='range']::-webkit-slider-thumb {
 .trackTile {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1.5fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+      grid-template-columns: 1.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
   margin-bottom: 1rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -535,14 +535,25 @@ input[type='range']::-webkit-slider-thumb {
   overflow: hidden;
 }
 
+.artist {
+  font-weight: 600;
+}
+
 .trackMetadataUnselected p {
   color: #c4c4c4;
 }
 
+.spotifyIconContainer img {
+  width: 23px;
+  height: 23px;
+  position: relative;
+  bottom: 10px;
+}
+
 .trackAction {
-  -ms-grid-column: 5;
-      grid-column-start: 5;
-  grid-column-end: 6;
+  -ms-grid-column: 6;
+      grid-column-start: 6;
+  grid-column-end: 7;
   cursor: pointer;
 }
 
@@ -701,8 +712,6 @@ input[type='range']::-webkit-slider-thumb {
     height: 80px;
   }
   .trackTile {
-    -ms-grid-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
-        grid-template-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
@@ -748,8 +757,6 @@ input[type='range']::-webkit-slider-thumb {
     overflow-y: hidden;
   }
   .searchResults .trackTile {
-    -ms-grid-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
-        grid-template-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
@@ -887,8 +894,6 @@ input[type='range']::-webkit-slider-thumb {
   .trackTile {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1.5fr 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
     margin-bottom: 1rem;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;

@@ -490,7 +490,7 @@ input[type='range']::-webkit-slider-thumb {
 //Track tile styles
 .trackTile {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
     margin-bottom: 1rem;
     justify-content: space-between;
     background-color: $veryLightGrey;
@@ -522,6 +522,11 @@ input[type='range']::-webkit-slider-thumb {
     overflow: hidden;
 }
 
+
+.artist {
+    font-weight: 600;
+}
+
 .trackMetadataUnselected {
     p {
         color: $midGrey;
@@ -529,9 +534,18 @@ input[type='range']::-webkit-slider-thumb {
     
 }
 
+.spotifyIconContainer {
+    img {
+        width: 23px;
+        height: 23px;
+        position: relative;
+        bottom: 10px;
+    }
+}
+
 .trackAction {
-    grid-column-start: 5;
-    grid-column-end: 6;
+    grid-column-start: 6;
+    grid-column-end: 7;
     cursor: pointer;
     img {
         height: 32px;
@@ -688,7 +702,7 @@ input[type='range']::-webkit-slider-thumb {
     //768 trackTile styles
 
     .trackTile {
-        grid-template-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
+        // grid-template-columns: 2fr 1fr 1fr 0.5fr 1fr;
         justify-content: space-evenly;
         height: 5rem;
         margin-bottom: 0;
@@ -738,7 +752,7 @@ input[type='range']::-webkit-slider-thumb {
         width: 100%;
         overflow-y: hidden;
         .trackTile {
-            grid-template-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
+            //grid-template-columns: 1.5fr 1fr 1fr 0.5fr 1fr;
             justify-content: space-evenly;
             margin: 0 0.5rem 0.5rem 0.5rem;
             width: 31.2%;
@@ -898,7 +912,7 @@ input[type='range']::-webkit-slider-thumb {
 
     .trackTile {
         display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+        // grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
         margin-bottom: 1rem;
         justify-content: space-between;
         background-color: $veryLightGrey;

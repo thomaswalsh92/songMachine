@@ -51,6 +51,8 @@ const Search = (props) => {
         props.closeSearch();
     };
 
+    console.log (props.searchedTracks)
+
     return ReactDom.createPortal( 
         <>
             <div className="searchBg" ref={searchBg}>
@@ -70,8 +72,10 @@ const Search = (props) => {
                             artist={track.artists[0].name}
                             album={track.album.name}
                             artURL={track.album.images[2].url}
+                            listenURL={track.external_urls.spotify}
                             isSeed={false}
                             isSelected={false}
+                            isSearched={true}
                             selectTrack={props.selectTrack}
                             />
                         })}
